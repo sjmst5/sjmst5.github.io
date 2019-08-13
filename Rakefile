@@ -19,8 +19,8 @@ task :test do
   HTMLProofer.check_directory('html', {
     :url_swap => { '*.sjmst5.github.io/' => '/' },
     :only_4xx => true,
-    :check_favicon => false,
-    :check_html => false,
+    :check_favicon => true,
+    :check_html => true,
     :assume_extension => true,
     :allow_hash_href => true,
     :disable_external => true
