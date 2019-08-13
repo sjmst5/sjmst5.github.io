@@ -1,0 +1,25 @@
+language: ruby
+rvm: 2.5
+sudo: false
+cache: bundler
+
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+    - JEKYLL_ENV=production
+
+branches:
+  only:
+    - build
+
+before_script:
+
+after_success:
+  - git config --global user.name "Travis CI"
+  - git config --global user.email "robdekleinepkg@outlook.com"
+  - git clone --quiet --depth=50 --branch=master https://$GITHUB_API_KEY@github.com/sjmst5/sjmst5.github.io.git ../master > /dev/null 2>&1
+  - rsync -vrth --delete --exclude '.git*' ./html/ ../master/
+  - cd ../master
+  - git add -A .
+  - git commit -am "Automated Build ($TRAVIS_COMMIT)"
+  - git push -fq origin master > /dev/null 2>&1

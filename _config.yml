@@ -1,0 +1,28 @@
+# Core Jekyll Configuration
+locale                : 'en'
+source                : 'jekyll'
+destination           : 'html'
+url                   : 'https://sjmst5.github.io'
+enforce_ssl           : 'sjmst5.github.io'
+permalink             : '/articles/:title'
+include               : ['_pages']
+plugins               : []
+
+# Progressive Web App Settings
+pwa_title             : 'sjmst5'
+pwa_themecolor        : '#1e88e5'
+pwa_backgroundcolor   : '#1e88e5'
+
+serviceworker         : false
+google_analytics      : ''
+
+# Custom Jekyll Configuration
+title                 : 'Martin Groeneveld'
+tagline               : 'Hacker, Maker, Tinkerer, Learner'
+description           : 'The personal website of Martin Groeneveld'
+
+author                : 'Martin Groeneveld'
+email                 : 'martin@groveld.com'
+phone                 : '+31610106931'
+address               : 'De Kamp 8<br>8627SP Gauw<br>Netherlands'
+legal                 : '<a href="/terms">Terms</a> &bull; <a href="/privacy">Privacy</a>'
