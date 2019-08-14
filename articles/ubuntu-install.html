@@ -122,7 +122,7 @@ Look for keyword <code class="highlighter-rouge">Active: active (running)</code>
 <p><code class="highlighter-rouge">service ssh start</code></p>
 
 <p>In order to completely disable SSH after reboots
-```systemctl disable ssh</p>
+<code class="highlighter-rouge">systemctl disable ssh</code></p>
 
 <p>To enable SSH again
 <code class="highlighter-rouge">systemctl enable ssh</code></p>
@@ -134,38 +134,37 @@ remove the # before the line you want to edit
 <code class="highlighter-rouge">PermitRootLogin yes</code></p>
 
 <p>to save and exit</p>
-<pre><code class="language-Ctrl+X```">```Y```
-``` Enter```
-Don't forget to restart ssd ;-)
 
-#### ifconfig
-To enable ifconfig you need to install net-tools
+<p><code class="highlighter-rouge">Ctrl + X</code>
+<code class="highlighter-rouge">Y</code>
+<code class="highlighter-rouge">Enter</code></p>
 
-```apt install net-tools```
+<p>Don’t forget to restart ssd ;-)</p>
 
-run ``` ifconfig```
+<h4 id="ifconfig">ifconfig</h4>
+<p>To enable ifconfig you need to install net-tools</p>
 
+<p><code class="highlighter-rouge">apt install net-tools</code></p>
 
-#####
+<p>run <code class="highlighter-rouge">ifconfig</code></p>
 
+<p>#####</p>
 
-###### Deluge
+<h6 id="deluge">Deluge</h6>
 
-Install "Deluge" from the Ubuntu store 
+<p>Install “Deluge” from the Ubuntu store</p>
 
-Open an Terminal and intall
+<p>Open an Terminal and intall</p>
 
-```apt install deluged deluge-console deluge-webui```
+<p><code class="highlighter-rouge">apt install deluged deluge-console deluge-webui</code></p>
 
-Run Deluge and check the box Preferences-&gt;Daemon-&gt;Allow Remote Connection
+<p>Run Deluge and check the box Preferences-&gt;Daemon-&gt;Allow Remote Connection</p>
 
-```cd /etc/systemd/system/
+<p><code class="highlighter-rouge">cd /etc/systemd/system/
 touch deluged.service
-nano /etc/systemd/system/deluged.service```
+nano /etc/systemd/system/deluged.service</code></p>
 
-</code></pre>
-<p>[Unit]
-Description=Deluge Bittorrent Client Daemon
+<pre><code class="language-[Unit]">Description=Deluge Bittorrent Client Daemon
 Documentation=man:deluged
 After=network-online.target
 [Service]
@@ -174,46 +173,49 @@ User=deluge
 Group=deluge
 UMask=007
 ExecStart=/usr/bin/deluged -d
-Restart=on-failure</p>
-<h1 id="time-to-wait-before-forcefully-stopped">Time to wait before forcefully stopped.</h1>
-<p>TimeoutStopSec=300
+Restart=on-failure
+# Time to wait before forcefully stopped.
+TimeoutStopSec=300
 [Install]
-WantedBy=multi-user.target</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```sudo systemctl start deluged```
+WantedBy=multi-user.target
+</code></pre>
+<p>Start Deluge</p>
 
-Additionally, enable the Daemon at boot with:
+<p><code class="highlighter-rouge">sudo systemctl start deluged</code></p>
 
-```systemctl enable deluged```
-It’s time to set up the user for Deluge Daemon. Use echo to push a new user to the configuration file. 
-Change “user” to the name of the existing user on the system. Be sure that you enter the same password as your system user.
+<p>Additionally, enable the Daemon at boot with:</p>
 
-Note: 10 means your system user has full access to modify Deluge.
+<p><code class="highlighter-rouge">systemctl enable deluged</code></p>
 
-echo "user:password:10" &gt;&gt; ~/.config/deluge/auth
-Now that the user is correctly configured, kill the daemon and start it back up. This can be done with systemd or killall.
+<p>It’s time to set up the user for Deluge Daemon. Use echo to push a new user to the configuration file. 
+Change “user” to the name of the existing user on the system. Be sure that you enter the same password as your system user.</p>
 
-sudo systemctl stop deluged
+<blockquote>
+  <p>Note: 10 means your system user has full access to modify Deluge.</p>
+</blockquote>
 
-sudo systemctl start deluged
+<p><code class="highlighter-rouge">echo "user:password:10" &gt;&gt; ~/.config/deluge/auth</code></p>
 
-Lastly, enable the Deluge WebUI connection.
+<p>Now that the user is correctly configured, kill the daemon and start it back up. This can be done with systemd or killall.</p>
 
-deluge-web --fork
+<p><code class="highlighter-rouge">sudo systemctl stop deluged</code></p>
 
-### h3
+<p><code class="highlighter-rouge">sudo systemctl start deluged</code></p>
 
-**sasas**
+<p>Lastly, enable the Deluge WebUI connection.</p>
 
-_dsadas_
+<p><code class="highlighter-rouge">deluge-web --fork</code></p>
 
-*_kjhkh_*
+<p><strong>vet</strong></p>
 
+<p><em>cursief</em></p>
+
+<p><em><strong>beide</strong></em></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>boxed
 </code></pre></div></div>
-<p>su deluge
-```
- volgend atap is:</p>
 
-<p>asdasdasd
+<p>ref:
  https://www.addictivetips.com/ubuntu-linux-tips/use-deluge-webui-on-linux/
  https://dev.deluge-torrent.org/wiki/UserGuide/ThinClient</p>
 
