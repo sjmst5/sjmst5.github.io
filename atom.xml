@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-08-14T13:34:56+00:00</updated>
+ <updated>2019-08-14T13:48:10+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -124,7 +124,9 @@ remove the # before the line you want to edit
 
 &lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;#####&lt;/p&gt;
+&lt;h5 id=&quot;samba-local-share&quot;&gt;Samba (local) share&lt;/h5&gt;
+
+&lt;p&gt;Now where going to set up an Folder that can be found in the network:&lt;/p&gt;
 
 &lt;h6 id=&quot;deluge&quot;&gt;Deluge&lt;/h6&gt;
 
