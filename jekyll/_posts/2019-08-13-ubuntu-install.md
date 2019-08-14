@@ -59,7 +59,10 @@ To enable ifconfig you need to install net-tools
 run ``` ifconfig```
 
 
-#####
+##### Samba (local) share
+
+Now where going to set up an Folder that can be found in the network:
+
 
 
 ###### Deluge
