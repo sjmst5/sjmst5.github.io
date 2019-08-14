@@ -32,7 +32,7 @@ To start again run:
 ```service ssh start```
 
 In order to completely disable SSH after reboots 
-```systemctl disable ssh
+```systemctl disable ssh```
 
 To enable SSH again
 ```systemctl enable ssh```
@@ -44,9 +44,11 @@ remove the # before the line you want to edit
 ```PermitRootLogin yes```
 
 to save and exit
-```Ctrl+X```
-```Y```
-``` Enter```
+
+```Ctrl + X```
+``` Y ```
+``` Enter ```
+
 Don't forget to restart ssd ;-)
 
 #### ifconfig
@@ -74,8 +76,7 @@ Run Deluge and check the box Preferences->Daemon->Allow Remote Connection
 touch deluged.service
 nano /etc/systemd/system/deluged.service```
 
-```
-[Unit]
+```[Unit]
 Description=Deluge Bittorrent Client Daemon
 Documentation=man:deluged
 After=network-online.target
@@ -91,40 +92,43 @@ TimeoutStopSec=300
 [Install]
 WantedBy=multi-user.target
 ```
+Start Deluge
+
 ```sudo systemctl start deluged```
 
 Additionally, enable the Daemon at boot with:
 
 ```systemctl enable deluged```
+
+
 It’s time to set up the user for Deluge Daemon. Use echo to push a new user to the configuration file. 
 Change “user” to the name of the existing user on the system. Be sure that you enter the same password as your system user.
 
-Note: 10 means your system user has full access to modify Deluge.
+> Note: 10 means your system user has full access to modify Deluge.
 
-echo "user:password:10" >> ~/.config/deluge/auth
+```echo "user:password:10" >> ~/.config/deluge/auth```
+
 Now that the user is correctly configured, kill the daemon and start it back up. This can be done with systemd or killall.
 
-sudo systemctl stop deluged
+```sudo systemctl stop deluged```
 
-sudo systemctl start deluged
+```sudo systemctl start deluged```
 
 Lastly, enable the Deluge WebUI connection.
 
-deluge-web --fork
+```deluge-web --fork```
 
-### h3
 
-**sasas**
+**vet**
 
-_dsadas_
+_cursief_
 
-*_kjhkh_*
+_**beide**_
 
 ``` 
-su deluge
+boxed
 ```
- volgend atap is:
  
- asdasdasd
+ ref:
  https://www.addictivetips.com/ubuntu-linux-tips/use-deluge-webui-on-linux/
  https://dev.deluge-torrent.org/wiki/UserGuide/ThinClient
