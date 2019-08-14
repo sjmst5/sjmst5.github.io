@@ -16,7 +16,7 @@ when promted provide your password
 After successful login, the $ prompt would change to # 
 to indicate that you logged in as root user on Ubuntu
 
-### SSH
+## SSH
 
 ```apt install ssh```
 
@@ -51,7 +51,7 @@ to save and exit
 
 Don't forget to restart ssd ;-)
 
-#### ifconfig
+## ifconfig
 To enable ifconfig you need to install net-tools
 
 ```apt install net-tools```
@@ -59,13 +59,13 @@ To enable ifconfig you need to install net-tools
 run ``` ifconfig```
 
 
-##### Samba (local) share
+## Samba (local) share
 
 Now where going to set up an Folder that can be found in the network:
 
 
 
-###### Deluge
+## Deluge
 
 Install "Deluge" from the Ubuntu store 
 
