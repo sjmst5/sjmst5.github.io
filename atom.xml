@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-08-14T13:48:10+00:00</updated>
+ <updated>2019-08-14T13:50:17+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -82,7 +82,7 @@ when promted provide your password&lt;/p&gt;
 &lt;p&gt;After successful login, the $ prompt would change to # 
 to indicate that you logged in as root user on Ubuntu&lt;/p&gt;
 
-&lt;h3 id=&quot;ssh&quot;&gt;SSH&lt;/h3&gt;
+&lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install ssh&lt;/code&gt;&lt;/p&gt;
 
@@ -117,18 +117,18 @@ remove the # before the line you want to edit
 
 &lt;p&gt;Don’t forget to restart ssd ;-)&lt;/p&gt;
 
-&lt;h4 id=&quot;ifconfig&quot;&gt;ifconfig&lt;/h4&gt;
+&lt;h2 id=&quot;ifconfig&quot;&gt;ifconfig&lt;/h2&gt;
 &lt;p&gt;To enable ifconfig you need to install net-tools&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install net-tools&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;samba-local-share&quot;&gt;Samba (local) share&lt;/h5&gt;
+&lt;h2 id=&quot;samba-local-share&quot;&gt;Samba (local) share&lt;/h2&gt;
 
 &lt;p&gt;Now where going to set up an Folder that can be found in the network:&lt;/p&gt;
 
-&lt;h6 id=&quot;deluge&quot;&gt;Deluge&lt;/h6&gt;
+&lt;h2 id=&quot;deluge&quot;&gt;Deluge&lt;/h2&gt;
 
 &lt;p&gt;Install “Deluge” from the Ubuntu store&lt;/p&gt;
 
