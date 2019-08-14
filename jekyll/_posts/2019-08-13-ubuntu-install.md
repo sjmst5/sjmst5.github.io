@@ -119,15 +119,7 @@ Lastly, enable the Deluge WebUI connection.
 ```deluge-web --fork```
 
 
-**vet**
 
-_cursief_
-
-_**beide**_
-
-``` 
-boxed
-```
  
  ref:
  https://www.addictivetips.com/ubuntu-linux-tips/use-deluge-webui-on-linux/
