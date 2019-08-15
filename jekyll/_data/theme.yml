@@ -1,17 +1,17 @@
 # Theme customization - please change from the defaults!
 
 # Color for top bar, links, etc
-highlight_color: '#3498db'
+highlight_color: '#2F4F4F'
 
 # Profile links on the left sidebar, leave blank to ignore
 social:
-  github: swanson
-  #bitbucket: philipj
-  hacker_news: swanson
+  github: sjmst5
+  #bitbucket: 
+  #hacker_news: 
   #stackexchange: 348619
   #stackoverflow: 348619
-  twitter: _swanson
-  #facebook: zuck
+  #twitter: 
+  facebook: sjmst5
   #tumblr: animalygifs
   #linkedin: philipjagielski
   #gplus: 110552447039675960964
@@ -20,7 +20,7 @@ social:
 
 # "Hi, I'm _______"
 name: Rob de Kleine
-email: test@example.com
+email: robdekleinepkg@outlook.com.com
 tagline: "weak opinions, strongly held"
 
 # Google Analytics key, leave blank to ignore
@@ -30,4 +30,4 @@ google_analytics_key: UA-xxxx-x
 show_disclaimer: true
 
 # Toggle link/icon to view atom feed (/atom.xml) in sidebar
-show_atom_feed: true
+show_atom_feed: false
