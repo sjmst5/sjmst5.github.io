@@ -22,7 +22,7 @@
   <div class="container">
     <div class="four columns sidebar">
       <nav>
-  <h1>Hi.</h1>
+  <h1>Hey stalker.</h1>
   <a href="/">
     
     <img src="/logo.png" id="logo" alt="Blog logo"/>
@@ -91,20 +91,16 @@
 
 <h2 id="root-access">Root access</h2>
 
-<p>open terminal by pressing Ctrl+Alt+T (Ctrl+C to clean)
-<code class="highlighter-rouge">sudo -i (or sudo -s)</code> 
-when promted provide your password</p>
-
-<p>After successful login, the $ prompt would change to # 
-to indicate that you logged in as root user on Ubuntu</p>
+<p>open terminal by pressing Ctrl+Alt+T (Ctrl+C to clean) <code class="highlighter-rouge">sudo -i (or sudo -s)</code> when promted provide your password. After successful login, the $ prompt would change to #to indicate that you logged in as root user on Ubuntu.</p>
 
 <h2 id="ssh">SSH</h2>
 
 <p><code class="highlighter-rouge">apt install ssh</code></p>
 
 <p>Confirm that SSH server is up and running by executing the bellow command. 
-Look for keyword <code class="highlighter-rouge">Active: active (running)</code>.
-<code class="highlighter-rouge">service ssh status</code></p>
+Look for keyword <code class="highlighter-rouge">Active: active (running)</code>.</p>
+
+<p><code class="highlighter-rouge">service ssh status</code></p>
 
 <p>In an event that you need to temporarily disable SSH or restart:
 <code class="highlighter-rouge">service ssh stop</code></p>
@@ -117,9 +113,8 @@ Look for keyword <code class="highlighter-rouge">Active: active (running)</code>
 <code class="highlighter-rouge">systemctl disable ssh</code></p>
 
 <p>To enable SSH again
-<code class="highlighter-rouge">systemctl enable ssh</code></p>
-
-<p>Config SSH port
+<code class="highlighter-rouge">systemctl enable ssh</code>
+Config SSH port
 <code class="highlighter-rouge">nano /etc/ssh/sshd_config</code>
 remove the # before the line you want to edit
 <code class="highlighter-rouge">port 5022</code>

@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-08-21T12:12:19+00:00</updated>
+ <updated>2019-08-21T13:33:54+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -56,20 +56,16 @@
 
 &lt;h2 id=&quot;root-access&quot;&gt;Root access&lt;/h2&gt;
 
-&lt;p&gt;open terminal by pressing Ctrl+Alt+T (Ctrl+C to clean)
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -i (or sudo -s)&lt;/code&gt; 
-when promted provide your password&lt;/p&gt;
-
-&lt;p&gt;After successful login, the $ prompt would change to # 
-to indicate that you logged in as root user on Ubuntu&lt;/p&gt;
+&lt;p&gt;open terminal by pressing Ctrl+Alt+T (Ctrl+C to clean) &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -i (or sudo -s)&lt;/code&gt; when promted provide your password. After successful login, the $ prompt would change to #to indicate that you logged in as root user on Ubuntu.&lt;/p&gt;
 
 &lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install ssh&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Confirm that SSH server is up and running by executing the bellow command. 
-Look for keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;Active: active (running)&lt;/code&gt;.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh status&lt;/code&gt;&lt;/p&gt;
+Look for keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;Active: active (running)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh status&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;In an event that you need to temporarily disable SSH or restart:
 &lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh stop&lt;/code&gt;&lt;/p&gt;
@@ -82,9 +78,8 @@ Look for keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;Active: active 
 &lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl disable ssh&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;To enable SSH again
-&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable ssh&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Config SSH port
+&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable ssh&lt;/code&gt;
+Config SSH port
 &lt;code class=&quot;highlighter-rouge&quot;&gt;nano /etc/ssh/sshd_config&lt;/code&gt;
 remove the # before the line you want to edit
 &lt;code class=&quot;highlighter-rouge&quot;&gt;port 5022&lt;/code&gt;
