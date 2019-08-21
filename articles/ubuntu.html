@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matt Swanson - Ubuntu 18.04</title>
+  <meta name="author" content="Matt Swanson" />
+  <meta name="description" content="The blog of Matt Swanson" />
+  <link rel="canonical" href="https://sjmst5.github.io/articles/ubuntu" />
+
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Matt Swanson" href="https://sjmst5.github.io/atom.xml" />
+
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="four columns sidebar">
+      <nav>
+  <h1>Hi.</h1>
+  <a href="/">
+    
+    <img src="/logo.png" id="logo" alt="Blog logo"/>
+    
+  </a>
+  <h2>I'm <a href="/">Matt Swanson</a>.</h2>
+  <div id="bio">
+    <p>A brief bio or something witty.</p>
+    <p>
+      Edit me in <code>_includes/sidebar.html</code>
+    </p>
+  </div>
+  <div id="social">
+    Follow me:
+<div id="stalker">
+  
+  <a title="swanson on Github" href="https://github.com/swanson">
+    <i class="fa fa-github-square"></i>
+  </a>
+  
+
+  
+
+  
+  <a title="swanson on Hacker News" href="https://news.ycombinator.com/user?id=swanson">
+     <i class="fa fa-hacker-news"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+  <a title="_swanson on Twitter" href="https://twitter.com/_swanson">
+    <i class="fa fa-twitter-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a title="Atom feed" id="atom" href="/atom.xml">
+    <i class="fa fa-rss-square"></i>
+  </a>
+  
+</div>
+
+  </div>
+</nav>
+
+    </div>
+
+    <div class="eleven columns content">
+      <p class="meta">
+  August 13, 2019 
+  <a href="/">
+    <i class="home fa fa-home"></i>
+  </a>
+</p>
+
+<h1 class="title">Ubuntu 18.04</h1>
+
+<div id="post">
+  <p>Download and install <a href="https://ubuntu.com/download/desktop">Ubuntu</a> and just install.</p>
+
+<h2 id="root-access">Root access</h2>
+
+<p>open terminal by pressing Ctrl+Alt+T (Ctrl+C to clean)
+<code class="highlighter-rouge">sudo -i (or sudo -s)</code> 
+when promted provide your password</p>
+
+<p>After successful login, the $ prompt would change to # 
+to indicate that you logged in as root user on Ubuntu</p>
+
+<h2 id="ssh">SSH</h2>
+
+<p><code class="highlighter-rouge">apt install ssh</code></p>
+
+<p>Confirm that SSH server is up and running by executing the bellow command. 
+Look for keyword <code class="highlighter-rouge">Active: active (running)</code>.
+<code class="highlighter-rouge">service ssh status</code></p>
+
+<p>In an event that you need to temporarily disable SSH or restart:
+<code class="highlighter-rouge">service ssh stop</code></p>
+
+<p>To start again run:</p>
+
+<p><code class="highlighter-rouge">service ssh start</code></p>
+
+<p>In order to completely disable SSH after reboots 
+<code class="highlighter-rouge">systemctl disable ssh</code></p>
+
+<p>To enable SSH again
+<code class="highlighter-rouge">systemctl enable ssh</code></p>
+
+<p>Config SSH port
+<code class="highlighter-rouge">nano /etc/ssh/sshd_config</code>
+remove the # before the line you want to edit
+<code class="highlighter-rouge">port 5022</code>
+<code class="highlighter-rouge">PermitRootLogin yes</code></p>
+
+<p>to save and exit</p>
+
+<p><code class="highlighter-rouge">Ctrl + X</code>
+<code class="highlighter-rouge">Y</code>
+<code class="highlighter-rouge">Enter</code></p>
+
+<p>Don’t forget to restart ssh or reboot😉</p>
+
+<h2 id="ifconfig">ifconfig</h2>
+<p>To enable ifconfig you need to install net-tools</p>
+
+<p><code class="highlighter-rouge">apt install net-tool</code></p>
+
+<p>run <code class="highlighter-rouge">ifconfig</code></p>
+
+<h2 id="samba-local-share">Samba (local) share</h2>
+
+<p>Now where going to set up an Folder that can be found in the network:</p>
+
+<h2 id="deluge">Deluge</h2>
+
+<p>Install “Deluge” from the Ubuntu store</p>
+
+<p>Open an Terminal and intall</p>
+
+<p><code class="highlighter-rouge">apt install deluged deluge-console deluge-webui</code></p>
+
+<p>Run Deluge and check the box Preferences-&gt;Daemon-&gt;Allow Remote Connection</p>
+
+<p><code class="highlighter-rouge">cd /etc/systemd/system/
+touch deluged.service
+nano /etc/systemd/system/deluged.service</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+Description=Deluge Bittorrent Client Daemon
+Documentation=man:deluged
+After=network-online.target
+[Service]
+Type=simple
+User=deluge
+Group=deluge
+UMask=007
+ExecStart=/usr/bin/deluged -d
+Restart=on-failure
+# Time to wait before forcefully stopped.
+TimeoutStopSec=300
+[Install]
+WantedBy=multi-user.target
+</code></pre></div></div>
+
+<p>Start Deluge</p>
+
+<p><code class="highlighter-rouge">sudo systemctl start deluged</code></p>
+
+<p>Additionally, enable the Daemon at boot with:</p>
+
+<p><code class="highlighter-rouge">systemctl enable deluged</code></p>
+
+<p>It’s time to set up the user for Deluge Daemon. Use echo to push a new user to the configuration file. 
+Change “user” to the name of the existing user on the system. Be sure that you enter the same password as your system user.</p>
+
+<blockquote>
+  <p>Note: 10 means your system user has full access to modify Deluge.</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">echo "user:password:10" &gt;&gt; ~/.config/deluge/auth</code></p>
+
+<p>Now that the user is correctly configured, kill the daemon and start it back up. This can be done with systemd or killall.</p>
+
+<p><code class="highlighter-rouge">sudo systemctl stop deluged</code></p>
+
+<p><code class="highlighter-rouge">sudo systemctl start deluged</code></p>
+
+<p>Lastly, enable the Deluge WebUI connection.</p>
+
+<p><code class="highlighter-rouge">deluge-web --fork</code></p>
+
+<p>ref:
+ <code class="highlighter-rouge">https://www.addictivetips.com/ubuntu-linux-tips/use-deluge-webui-on-linux/
+ https://dev.deluge-torrent.org/wiki/UserGuide/ThinClient</code></p>
+
+</div>
+
+<div id="related">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    
+    <li>
+      <span>15 Aug 2019 &raquo;</span> <a href="/articles/visual-studio-code">Visual Studio Code</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      <div class="footer">
+        <div class="disclaimer">
+  
+  <p>
+    The postings on this site are my own and don't necessarily represent my 
+    employer’s positions, strategies or opinions.
+  </p>
+  
+
+  <p>
+    © Matt Swanson, 2019 &mdash; built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+  </p>
+</div>
+      </div>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-xxxx-x']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
