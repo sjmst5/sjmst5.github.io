@@ -1,12 +1,12 @@
-<footer>
-  © 2016 Your Name <a href="#">Privacy link</a> - Powered by Jekyll.
-</footer>
-<div align="center">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <ins class="adsbygoogle"
-    style="display:block"
-    data-ad-client="ca-pub-0000000000000000"
-    data-ad-slot="0000000000"
-    data-ad-format="auto"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+<div class="disclaimer">
+    {% if site.data.theme.show_disclaimer %}
+    <p>
+      The postings on this site are my own and don't necessarily represent my 
+      employer’s positions, strategies or opinions.
+    </p>
+    {% endif %}
+  
+    <p>
+      © {{ site.data.theme.name }},<a href="tel:1-562-867-5309">1-562-867-5309</a> {{ 'now' | date: "%Y" }} &mdash; built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+    </p>
+  </div>
