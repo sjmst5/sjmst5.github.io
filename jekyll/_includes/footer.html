@@ -1,12 +1,5 @@
-<div class="disclaimer">
-  {% if site.data.theme.show_disclaimer %}
-  <p>
-    The postings on this site are my own and don't necessarily represent my 
-    employer’s positions, strategies or opinions.
-  </p>
-  {% endif %}
-
-  <p>
-    © {{ site.data.theme.name }}, {{ 'now' | date: "%Y" }} &mdash; built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
-  </p>
-</div>
+<footer class="site-footer">
+    <button class="go-to-top"></button>
+    <p class="copyright"><a href="{{ "" | absolute_url }}" title="{{ site.title }}">{{site.title}}</a> &copy; {{ site.time | date: '%Y' }} | <a href="{{ "/feed.xml" | absolute_url }}" title="RSS Feed">RSS Feed</a></p>
+    <p class="poweredby">powered by <a href="https://jekyllrb.com/" title="Jekyll">Jekyll</a> with the <a href="https://github.com/jwillmer/jekyllDecent" title="jekyllDecent Theme">jekyllDecent</a> theme</p>
+</footer>
