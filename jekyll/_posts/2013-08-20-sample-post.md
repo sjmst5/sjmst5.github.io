@@ -1,6 +1,6 @@
 ---
 layout: post
-title: test
+title: Sample post
 categories:
 - blog
 ---
@@ -40,15 +40,5 @@ class User < ActiveRecord::Base
   ... tons of other crap ...
 
 end
-
-**vet**
-
-_cursief_
-
-_**beide**_
-
-``` 
-boxed
-```
 
 {% endhighlight %}
