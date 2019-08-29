@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-08-29T13:35:11+00:00</updated>
+ <updated>2019-08-29T13:57:09+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -13,9 +13,18 @@
 
  
  <entry>
+   <title>Blank</title>
+   <link href="https://sjmst5.github.io/articles/blank"/>
+   <updated>2019-08-29T00:00:00+00:00</updated>
+   <id>https://sjmst5.github.io/articles/blank</id>
+   <content type="html">&lt;h2 id=&quot;blank&quot;&gt;Blank&lt;/h2&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Ubuntu 18.04</title>
    <link href="https://sjmst5.github.io/articles/ubuntu"/>
-   <updated>2019-08-29T00:00:00+00:00</updated>
+   <updated>2019-08-28T00:00:00+00:00</updated>
    <id>https://sjmst5.github.io/articles/ubuntu</id>
    <content type="html">&lt;p&gt;Download and install &lt;a href=&quot;https://ubuntu.com/download/desktop&quot;&gt;Ubuntu&lt;/a&gt; and just install.&lt;/p&gt;
 

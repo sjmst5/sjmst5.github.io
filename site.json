@@ -3,6 +3,12 @@
 {"date": "Thu, 29 Aug 2019 00:00:00 +0000",
 "categories": ["blog"],
 "tags": [],
+"title": "Blank",
+"url": "/articles/blank"},
+
+{"date": "Wed, 28 Aug 2019 00:00:00 +0000",
+"categories": ["blog"],
+"tags": [],
 "title": "Ubuntu 18.04",
 "url": "/articles/ubuntu"},
 
