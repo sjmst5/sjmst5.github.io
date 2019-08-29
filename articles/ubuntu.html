@@ -79,7 +79,7 @@
 
     <div class="eleven columns content">
       <p class="meta">
-  August 13, 2019 
+  August 29, 2019 
   <a href="/">
     <i class="home fa fa-home"></i>
   </a>
@@ -136,13 +136,48 @@ remove the # before the line you want to edit
 
 <p>run <code class="highlighter-rouge">ifconfig</code></p>
 
-<h2 id="samba-local-share">Samba (local) share</h2>
+<h2 id="samba-public-local-share">Samba (public local) share</h2>
 
-<p>Now where going to set up an Folder that can be found in the network:</p>
+<p>Now where going to set up an Folder that can be found in the network with Samba</p>
+
+<p>Open an Terminal and install
+<code class="highlighter-rouge">apt-get install samba smbfs</code></p>
+
+<p>Configure samba
+<code class="highlighter-rouge">nano /etc/samba/smb.conf</code></p>
+
+<p>If necesary you can change your workgoup</p>
+
+<p><code class="highlighter-rouge"># Change this to the workgroup/NT-domain name your Samba server will part of
+   workgroup = WORKGROUP</code></p>
+
+<p>Define the folders that you want to share</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Public's share
+</span>[<span class="n">MyPublicShare</span>]
+  <span class="n">comment</span> = <span class="n">YOUR</span> <span class="n">COMMENTS</span>
+  <span class="n">path</span> = /<span class="n">your</span>-<span class="n">share</span>-<span class="n">folder</span>  
+  <span class="n">read</span> <span class="n">only</span> = <span class="n">no</span>  
+  <span class="n">guest</span> <span class="n">ok</span> = <span class="n">yes</span>
+</code></pre></div></div>
+<p>Restart samba <code class="highlighter-rouge">/etc/init.d/smbd restart</code></p>
+
+<p>If not already you can create the share folder: <code class="highlighter-rouge">mkdir /your-share-folder</code></p>
+
+<p>Set the permissions: <code class="highlighter-rouge">chmod 0777 /your-share-folder</code></p>
+
+<p>Acces in Windows Explorer
+Type: <code class="highlighter-rouge">\\&lt;your-ip-address-to-ubuntu&gt;\&lt;your-share-folder&gt;</code></p>
+
+<blockquote>
+  <p>If you have troubles with your Firewall,</p>
+
+  <p>the ports are: udp 137 &amp; 138, tcp 139 &amp; 445.</p>
+</blockquote>
 
 <h2 id="deluge">Deluge</h2>
 
-<p>Install “Deluge” from the Ubuntu store</p>
+<p>(Install “Deluge” from the Ubuntu store)</p>
 
 <p>Open an Terminal and intall</p>
 
@@ -154,21 +189,21 @@ remove the # before the line you want to edit
 touch deluged.service
 nano /etc/systemd/system/deluged.service</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
-Description=Deluge Bittorrent Client Daemon
-Documentation=man:deluged
-After=network-online.target
-[Service]
-Type=simple
-User=deluge
-Group=deluge
-UMask=007
-ExecStart=/usr/bin/deluged -d
-Restart=on-failure
-# Time to wait before forcefully stopped.
-TimeoutStopSec=300
-[Install]
-WantedBy=multi-user.target
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[<span class="n">Unit</span>]
+<span class="n">Description</span>=<span class="n">Deluge</span> <span class="n">Bittorrent</span> <span class="n">Client</span> <span class="n">Daemon</span>
+<span class="n">Documentation</span>=<span class="n">man</span>:<span class="n">deluged</span>
+<span class="n">After</span>=<span class="n">network</span>-<span class="n">online</span>.<span class="n">target</span>
+[<span class="n">Service</span>]
+<span class="n">Type</span>=<span class="n">simple</span>
+<span class="n">User</span>=<span class="n">deluge</span>
+<span class="n">Group</span>=<span class="n">deluge</span>
+<span class="n">UMask</span>=<span class="m">007</span>
+<span class="n">ExecStart</span>=/<span class="n">usr</span>/<span class="n">bin</span>/<span class="n">deluged</span> -<span class="n">d</span>
+<span class="n">Restart</span>=<span class="n">on</span>-<span class="n">failure</span>
+<span class="c"># Time to wait before forcefully stopped.
+</span><span class="n">TimeoutStopSec</span>=<span class="m">300</span>
+[<span class="n">Install</span>]
+<span class="n">WantedBy</span>=<span class="n">multi</span>-<span class="n">user</span>.<span class="n">target</span>
 </code></pre></div></div>
 
 <p>Start Deluge</p>
@@ -197,10 +232,6 @@ Change “user” to the name of the existing user on the system. Be sure that y
 <p>Lastly, enable the Deluge WebUI connection.</p>
 
 <p><code class="highlighter-rouge">deluge-web --fork</code></p>
-
-<p>ref:
- <code class="highlighter-rouge">https://www.addictivetips.com/ubuntu-linux-tips/use-deluge-webui-on-linux/
- https://dev.deluge-torrent.org/wiki/UserGuide/ThinClient</code></p>
 
 </div>
 

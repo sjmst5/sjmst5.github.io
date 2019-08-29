@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-08-29T12:45:28+00:00</updated>
+ <updated>2019-08-29T13:35:11+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -13,44 +13,9 @@
 
  
  <entry>
-   <title>Visual Studio Code</title>
-   <link href="https://sjmst5.github.io/articles/visual-studio-code"/>
-   <updated>2019-08-15T00:00:00+00:00</updated>
-   <id>https://sjmst5.github.io/articles/visual-studio-code</id>
-   <content type="html">&lt;h2 id=&quot;install&quot;&gt;Install&lt;/h2&gt;
-
-&lt;p&gt;Download and install &lt;a href=&quot;https://code.visualstudio.com/download&quot;&gt;Visual Studio Code&lt;/a&gt; and install with “Windows integration”.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;extensions&quot;&gt;Extensions&lt;/h2&gt;
-
-&lt;p&gt;The Extensions i have installed are:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer&quot;&gt;Bracket Pair Colorizer&lt;/a&gt;,
-&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=idleberg.emoji-code&quot;&gt;Emoji Code&lt;/a&gt;,
-&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens&quot;&gt;GitLens&lt;/a&gt;,
-&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme&quot;&gt;Material Icon Theme&lt;/a&gt;,
-&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme&quot;&gt;Material Theme&lt;/a&gt;.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;additional&quot;&gt;Additional&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;An Github account&lt;/a&gt;, For web storage.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://travis-ci.org/&quot;&gt;An Travis CI account&lt;/a&gt;, Testing before deploying the new/updated site online.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://gitforwindows.org/&quot;&gt;Git for Windows&lt;/a&gt;, Terminal in Windows.&lt;/p&gt;
-
-&lt;p&gt;Inside the terminal create an ssh to github, install “Jakyll” and “Ruby (cli)”&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Ubuntu 18.04</title>
    <link href="https://sjmst5.github.io/articles/ubuntu"/>
-   <updated>2019-08-13T00:00:00+00:00</updated>
+   <updated>2019-08-29T00:00:00+00:00</updated>
    <id>https://sjmst5.github.io/articles/ubuntu</id>
    <content type="html">&lt;p&gt;Download and install &lt;a href=&quot;https://ubuntu.com/download/desktop&quot;&gt;Ubuntu&lt;/a&gt; and just install.&lt;/p&gt;
 
@@ -100,13 +65,48 @@ remove the # before the line you want to edit
 
 &lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;samba-local-share&quot;&gt;Samba (local) share&lt;/h2&gt;
+&lt;h2 id=&quot;samba-public-local-share&quot;&gt;Samba (public local) share&lt;/h2&gt;
 
-&lt;p&gt;Now where going to set up an Folder that can be found in the network:&lt;/p&gt;
+&lt;p&gt;Now where going to set up an Folder that can be found in the network with Samba&lt;/p&gt;
+
+&lt;p&gt;Open an Terminal and install
+&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install samba smbfs&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Configure samba
+&lt;code class=&quot;highlighter-rouge&quot;&gt;nano /etc/samba/smb.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If necesary you can change your workgoup&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;# Change this to the workgroup/NT-domain name your Samba server will part of
+   workgroup = WORKGROUP&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Define the folders that you want to share&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Public's share
+&lt;/span&gt;[&lt;span class=&quot;n&quot;&gt;MyPublicShare&lt;/span&gt;]
+  &lt;span class=&quot;n&quot;&gt;comment&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;YOUR&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMMENTS&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;your&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;share&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;no&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;guest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ok&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;yes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Restart samba &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/smbd restart&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If not already you can create the share folder: &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir /your-share-folder&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Set the permissions: &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod 0777 /your-share-folder&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Acces in Windows Explorer
+Type: &lt;code class=&quot;highlighter-rouge&quot;&gt;\\&amp;lt;your-ip-address-to-ubuntu&amp;gt;\&amp;lt;your-share-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you have troubles with your Firewall,&lt;/p&gt;
+
+  &lt;p&gt;the ports are: udp 137 &amp;amp; 138, tcp 139 &amp;amp; 445.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;deluge&quot;&gt;Deluge&lt;/h2&gt;
 
-&lt;p&gt;Install “Deluge” from the Ubuntu store&lt;/p&gt;
+&lt;p&gt;(Install “Deluge” from the Ubuntu store)&lt;/p&gt;
 
 &lt;p&gt;Open an Terminal and intall&lt;/p&gt;
 
@@ -118,21 +118,21 @@ remove the # before the line you want to edit
 touch deluged.service
 nano /etc/systemd/system/deluged.service&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
-Description=Deluge Bittorrent Client Daemon
-Documentation=man:deluged
-After=network-online.target
-[Service]
-Type=simple
-User=deluge
-Group=deluge
-UMask=007
-ExecStart=/usr/bin/deluged -d
-Restart=on-failure
-# Time to wait before forcefully stopped.
-TimeoutStopSec=300
-[Install]
-WantedBy=multi-user.target
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&lt;span class=&quot;n&quot;&gt;Unit&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;Deluge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bittorrent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Daemon&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Documentation&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;man&lt;/span&gt;:&lt;span class=&quot;n&quot;&gt;deluged&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;After&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;network&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;online&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;
+[&lt;span class=&quot;n&quot;&gt;Service&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;simple&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;deluge&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Group&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;deluge&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;UMask&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;007&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ExecStart&lt;/span&gt;=/&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;deluged&lt;/span&gt; -&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Restart&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;failure&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Time to wait before forcefully stopped.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TimeoutStopSec&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;300&lt;/span&gt;
+[&lt;span class=&quot;n&quot;&gt;Install&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;WantedBy&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;multi&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Start Deluge&lt;/p&gt;
@@ -161,10 +161,41 @@ Change “user” to the name of the existing user on the system. Be sure that y
 &lt;p&gt;Lastly, enable the Deluge WebUI connection.&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;deluge-web --fork&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Visual Studio Code</title>
+   <link href="https://sjmst5.github.io/articles/visual-studio-code"/>
+   <updated>2019-08-15T00:00:00+00:00</updated>
+   <id>https://sjmst5.github.io/articles/visual-studio-code</id>
+   <content type="html">&lt;h2 id=&quot;install&quot;&gt;Install&lt;/h2&gt;
 
-&lt;p&gt;ref:
- &lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.addictivetips.com/ubuntu-linux-tips/use-deluge-webui-on-linux/
- https://dev.deluge-torrent.org/wiki/UserGuide/ThinClient&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Download and install &lt;a href=&quot;https://code.visualstudio.com/download&quot;&gt;Visual Studio Code&lt;/a&gt; and install with “Windows integration”.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;extensions&quot;&gt;Extensions&lt;/h2&gt;
+
+&lt;p&gt;The Extensions i have installed are:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer&quot;&gt;Bracket Pair Colorizer&lt;/a&gt;,
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=idleberg.emoji-code&quot;&gt;Emoji Code&lt;/a&gt;,
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens&quot;&gt;GitLens&lt;/a&gt;,
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme&quot;&gt;Material Icon Theme&lt;/a&gt;,
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme&quot;&gt;Material Theme&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;additional&quot;&gt;Additional&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;An Github account&lt;/a&gt;, For web storage.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://travis-ci.org/&quot;&gt;An Travis CI account&lt;/a&gt;, Testing before deploying the new/updated site online.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gitforwindows.org/&quot;&gt;Git for Windows&lt;/a&gt;, Terminal in Windows.&lt;/p&gt;
+
+&lt;p&gt;Inside the terminal create an ssh to github, install “Jakyll” and “Ruby (cli)”&lt;/p&gt;
 </content>
  </entry>
  
