@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-08-31T14:03:50+00:00</updated>
+ <updated>2019-08-31T14:12:20+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -30,13 +30,13 @@
 
 &lt;h2 id=&quot;root-access&quot;&gt;Root access&lt;/h2&gt;
 
-&lt;p&gt;Open an terminal by pressing Ctrl+Alt+T (Ctrl+C to clean) &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -i (or sudo -s)&lt;/code&gt; when promted provide your password. After successful login, the $ prompt would change to # indicating that you are logged in as root user on Ubuntu.&lt;/p&gt;
+&lt;p&gt;Open a terminal by pressing Ctrl+Alt+T (Ctrl+C to clean) &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -i (or sudo -s)&lt;/code&gt; when promted provide your password. After successful login, the $ prompt would change to # indicating that you are logged in as root user on Ubuntu.&lt;/p&gt;
 
 &lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install ssh&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Confirm that SSH server is up and running by executing the bellow command. 
+&lt;p&gt;Confirm the SSH server is up and running by executing the command bellow. 
 Look for keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;Active: active (running)&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh status&lt;/code&gt;&lt;/p&gt;
