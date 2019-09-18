@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-09-18T14:13:38+00:00</updated>
+ <updated>2019-09-18T14:15:19+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Storage Server</title>
-   <link href="https://sjmst5.github.io/articles/blank"/>
+   <link href="https://sjmst5.github.io/articles/Storage-Server"/>
    <updated>2019-08-29T00:00:00+00:00</updated>
-   <id>https://sjmst5.github.io/articles/blank</id>
+   <id>https://sjmst5.github.io/articles/Storage Server</id>
    <content type="html">&lt;h2 id=&quot;storage-server&quot;&gt;Storage Server&lt;/h2&gt;
 
 &lt;p&gt;As OS we will we use &lt;a href=&quot;https://www.proxmox.com/en/downloads/item/proxmox-ve-6-0-iso-installer&quot;&gt;Proxmox&lt;/a&gt;&lt;/p&gt;
