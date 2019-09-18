@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-09-10T10:00:33+00:00</updated>
+ <updated>2019-09-18T11:17:32+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -172,7 +172,59 @@ Change “user” to the name of the existing user on the system. Be sure that y
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;deluge-web --fork&lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;ufw-uncomplicatedfirewall&quot;&gt;ufw (UncomplicatedFirewall)&lt;/h2&gt;
+&lt;h2 id=&quot;ufw-uncomplicatedfirewall&quot;&gt;UFW (UncomplicatedFirewall)&lt;/h2&gt;
+
+&lt;p&gt;Install UFW&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install ufw&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Check te status&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Right now, it will probably tell you it is inactive. Whenever ufw is active, you’ll get a listing of the current rules that looks similar to this:&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Status&lt;/span&gt;: &lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;To&lt;/span&gt;               &lt;span class=&quot;n&quot;&gt;Action&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;From&lt;/span&gt;
+--               ------      ----
+&lt;span class=&quot;m&quot;&gt;22&lt;/span&gt;               &lt;span class=&quot;n&quot;&gt;ALLOW&lt;/span&gt;       &lt;span class=&quot;n&quot;&gt;Anywhere&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Allow Connections
+Example ssh:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow ssh&lt;/code&gt;
+or
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 22/tcp&lt;/code&gt;
+or
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 5022/tcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Other samples:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow www&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 80/tcp&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow ftp&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 21/tcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Port ranges:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 1000:2000/tcp&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 1000:2000/udp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;IP addresses:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow from 192.168.255.255&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Deny Connectios:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw deny 80/tcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Deleting Rules:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw delete *********&lt;/code&gt;
+sample
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw delete allow ssh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Turn ufw on status verbose off and reset:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status verbose&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw disable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Reset to default:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw reset&lt;/code&gt;&lt;/p&gt;
 </content>
  </entry>
  

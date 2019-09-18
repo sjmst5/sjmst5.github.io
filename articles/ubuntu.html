@@ -234,7 +234,59 @@ Change “user” to the name of the existing user on the system. Be sure that y
 
 <p><code class="highlighter-rouge">deluge-web --fork</code></p>
 
-<h2 id="ufw-uncomplicatedfirewall">ufw (UncomplicatedFirewall)</h2>
+<h2 id="ufw-uncomplicatedfirewall">UFW (UncomplicatedFirewall)</h2>
+
+<p>Install UFW</p>
+
+<p><code class="highlighter-rouge">apt-get install ufw</code></p>
+
+<p>Check te status</p>
+
+<p><code class="highlighter-rouge">ufw status</code></p>
+
+<p>Right now, it will probably tell you it is inactive. Whenever ufw is active, you’ll get a listing of the current rules that looks similar to this:</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Status</span>: <span class="n">active</span>
+
+<span class="n">To</span>               <span class="n">Action</span>      <span class="n">From</span>
+--               ------      ----
+<span class="m">22</span>               <span class="n">ALLOW</span>       <span class="n">Anywhere</span>
+</code></pre></div></div>
+
+<p>Allow Connections
+Example ssh:</p>
+
+<p><code class="highlighter-rouge">ufw allow ssh</code>
+or
+<code class="highlighter-rouge">ufw allow 22/tcp</code>
+or
+<code class="highlighter-rouge">ufw allow 5022/tcp</code></p>
+
+<p>Other samples:</p>
+
+<p><code class="highlighter-rouge">ufw allow www</code> or <code class="highlighter-rouge">ufw allow 80/tcp</code> or <code class="highlighter-rouge">ufw allow ftp</code> or <code class="highlighter-rouge">ufw allow 21/tcp</code></p>
+
+<p>Port ranges:
+<code class="highlighter-rouge">ufw allow 1000:2000/tcp</code>
+<code class="highlighter-rouge">ufw allow 1000:2000/udp</code></p>
+
+<p>IP addresses:
+<code class="highlighter-rouge">ufw allow from 192.168.255.255</code></p>
+
+<p>Deny Connectios:
+<code class="highlighter-rouge">ufw deny 80/tcp</code></p>
+
+<p>Deleting Rules:
+<code class="highlighter-rouge">ufw delete *********</code>
+sample
+<code class="highlighter-rouge">ufw delete allow ssh</code></p>
+
+<p>Turn ufw on status verbose off and reset:</p>
+
+<p><code class="highlighter-rouge">ufw enable</code> <code class="highlighter-rouge">ufw status</code> <code class="highlighter-rouge">ufw status verbose</code> <code class="highlighter-rouge">ufw disable</code></p>
+
+<p>Reset to default:
+<code class="highlighter-rouge">ufw reset</code></p>
 
 </div>
 
