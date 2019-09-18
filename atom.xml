@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-09-18T13:20:34+00:00</updated>
+ <updated>2019-09-18T13:25:02+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -19,13 +19,17 @@
    <id>https://sjmst5.github.io/articles/blank</id>
    <content type="html">&lt;h2 id=&quot;storage-server&quot;&gt;Storage Server&lt;/h2&gt;
 
-&lt;p&gt;-Nextcloud
--WebDAV
--Proxmox
--Hypervisor&lt;/p&gt;
+&lt;p&gt;-Nextcloud&lt;/p&gt;
 
-&lt;p&gt;-Cloud service (Dropbox)
--Crypomator.org&lt;/p&gt;
+&lt;p&gt;-WebDAV&lt;/p&gt;
+
+&lt;p&gt;-Proxmox&lt;/p&gt;
+
+&lt;p&gt;-Hypervisor&lt;/p&gt;
+
+&lt;p&gt;-Cloud service (Dropbox)&lt;/p&gt;
+
+&lt;p&gt;-Crypomator.org&lt;/p&gt;
 </content>
  </entry>
  
