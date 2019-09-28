@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-09-19T11:34:26+00:00</updated>
+ <updated>2019-09-28T16:08:39+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -25,6 +25,8 @@
 The server will host the NAS storage for individual users, also one general share.
 All of these shares will have an backup to dropbox.
 This will be running an Samba Share.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hypervisor-
 vm- +os -&amp;gt; nextcloud
