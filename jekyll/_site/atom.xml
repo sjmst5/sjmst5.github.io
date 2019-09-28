@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>The blog of Rob de Kleine</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000"/>
+ <updated>2019-09-28T18:06:20+02:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Rob de Kleine</name>
+   <email>robdekleinepkg@outlook.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Storage Server</title>
+   <link href="http://localhost:4000/blog/2019/08/29/Storage-Server.html"/>
+   <updated>2019-08-29T00:00:00+02:00</updated>
+   <id>http://localhost:4000/blog/2019/08/29/Storage Server</id>
+   <content type="html">&lt;h2 id=&quot;storage-server&quot;&gt;Storage Server&lt;/h2&gt;
+
+&lt;p&gt;As OS we will we use &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://www.proxmox.com/en/downloads/item/proxmox-ve-6-0-iso-installer&quot;&gt;Proxmox&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Inside of this surrounding we will install an lite &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.1.0-amd64-xfce-CD-1.iso&quot;&gt;Debian&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt; version to create the server.
+The server will host the NAS storage for individual users, also one general share.
+All of these shares will have an backup to dropbox.
+This will be running an Samba Share.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hypervisor-
+vm- +os -&amp;gt; nextcloud
+depencies&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;backup Cloud service (Dropbox)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ZFS&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Ubuntu 18.04</title>
+   <link href="http://localhost:4000/blog/2019/08/28/ubuntu.html"/>
+   <updated>2019-08-28T00:00:00+02:00</updated>
+   <id>http://localhost:4000/blog/2019/08/28/ubuntu</id>
+   <content type="html">&lt;p&gt;Download and install &lt;a href=&quot;https://ubuntu.com/download/desktop&quot;&gt;Ubuntu&lt;/a&gt; and just install.&lt;/p&gt;
+
+&lt;h2 id=&quot;root-access&quot;&gt;Root access&lt;/h2&gt;
+
+&lt;p&gt;Open a terminal by pressing Ctrl+Alt+T (Ctrl+C to clean) &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -i (or sudo -s)&lt;/code&gt; when promted provide your password. After successful login, the $ prompt would change to # indicating that you are logged in as root user on Ubuntu.&lt;/p&gt;
+
+&lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install ssh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Confirm the SSH server is up and running by executing the command bellow. 
+Look for keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;Active: active (running)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh status&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In an event that you need to temporarily disable SSH or restart:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh stop&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To start again run:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh start&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to completely disable SSH after reboots 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl disable ssh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To enable SSH again
+&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable ssh&lt;/code&gt;
+Config SSH port
+&lt;code class=&quot;highlighter-rouge&quot;&gt;nano /etc/ssh/sshd_config&lt;/code&gt;
+remove the # before the line you want to edit
+&lt;code class=&quot;highlighter-rouge&quot;&gt;port 5022&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;PermitRootLogin yes&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;to save and exit&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl + X&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Y&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Enter&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Don’t forget to restart ssh or reboot😉&lt;/p&gt;
+
+&lt;h2 id=&quot;ifconfig&quot;&gt;ifconfig&lt;/h2&gt;
+
+&lt;p&gt;To enable ifconfig you need to install net-tools&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install net-tool&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;samba-public-local-share&quot;&gt;Samba (public local) share&lt;/h2&gt;
+
+&lt;p&gt;Now where going to set up an Folder that can be found in the network with Samba&lt;/p&gt;
+
+&lt;p&gt;Open an Terminal and install
+&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install samba smbfs&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Configure samba
+&lt;code class=&quot;highlighter-rouge&quot;&gt;nano /etc/samba/smb.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If necesary you can change your workgoup&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;# Change this to the workgroup/NT-domain name your Samba server will part of
+   workgroup = WORKGROUP&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Define the folders that you want to share&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Public's share
+&lt;/span&gt;[&lt;span class=&quot;n&quot;&gt;MyPublicShare&lt;/span&gt;]
+  &lt;span class=&quot;n&quot;&gt;comment&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;YOUR&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;COMMENTS&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;your&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;share&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;no&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;guest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ok&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;yes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Restart samba &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/smbd restart&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If not already you can create the share folder: &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir /your-share-folder&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Set the permissions: &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod 0777 /your-share-folder&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Acces in Windows Explorer
+Type: &lt;code class=&quot;highlighter-rouge&quot;&gt;\\&amp;lt;your-ip-address-to-ubuntu&amp;gt;\&amp;lt;your-share-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you have troubles with your Firewall,&lt;/p&gt;
+
+  &lt;p&gt;the ports are: udp 137 &amp;amp; 138, tcp 139 &amp;amp; 445.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;deluge&quot;&gt;Deluge&lt;/h2&gt;
+
+&lt;p&gt;(Install “Deluge” from the Ubuntu store)&lt;/p&gt;
+
+&lt;p&gt;Open an Terminal and intall&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install deluged deluge-console deluge-webui&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Run Deluge and check the box Preferences-&amp;gt;Daemon-&amp;gt;Allow Remote Connection&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd /etc/systemd/system/
+touch deluged.service
+nano /etc/systemd/system/deluged.service&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&lt;span class=&quot;n&quot;&gt;Unit&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;Deluge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bittorrent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Daemon&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Documentation&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;man&lt;/span&gt;:&lt;span class=&quot;n&quot;&gt;deluged&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;After&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;network&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;online&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;
+[&lt;span class=&quot;n&quot;&gt;Service&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;simple&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;deluge&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Group&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;deluge&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;UMask&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;007&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ExecStart&lt;/span&gt;=/&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;deluged&lt;/span&gt; -&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Restart&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;failure&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Time to wait before forcefully stopped.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TimeoutStopSec&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;300&lt;/span&gt;
+[&lt;span class=&quot;n&quot;&gt;Install&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;WantedBy&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;multi&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Start Deluge&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl start deluged&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Additionally, enable the Daemon at boot with:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable deluged&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s time to set up the user for Deluge Daemon. Use echo to push a new user to the configuration file. 
+Change “user” to the name of the existing user on the system. Be sure that you enter the same password as your system user.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: 10 means your system user has full access to modify Deluge.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;echo &quot;user:password:10&quot; &amp;gt;&amp;gt; ~/.config/deluge/auth&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that the user is correctly configured, kill the daemon and start it back up. This can be done with systemd or killall.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl stop deluged&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl start deluged&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Lastly, enable the Deluge WebUI connection.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;deluge-web --fork&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ufw-uncomplicatedfirewall&quot;&gt;UFW (UncomplicatedFirewall)&lt;/h2&gt;
+
+&lt;p&gt;Install UFW&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install ufw&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Check te status&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Right now, it will probably tell you it is inactive. Whenever ufw is active, you’ll get a listing of the current rules that looks similar to this:&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Status&lt;/span&gt;: &lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;To&lt;/span&gt;               &lt;span class=&quot;n&quot;&gt;Action&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;From&lt;/span&gt;
+--               ------      ----
+&lt;span class=&quot;m&quot;&gt;22&lt;/span&gt;               &lt;span class=&quot;n&quot;&gt;ALLOW&lt;/span&gt;       &lt;span class=&quot;n&quot;&gt;Anywhere&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Allow Connections
+Example ssh:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow ssh&lt;/code&gt;
+or
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 22/tcp&lt;/code&gt;
+or
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 5022/tcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Other samples:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow www&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 80/tcp&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow ftp&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 21/tcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Port ranges:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 1000:2000/tcp&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 1000:2000/udp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;IP addresses:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow from 192.168.255.255&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Deny Connectios:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw deny 80/tcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Deleting Rules:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw delete *********&lt;/code&gt;
+sample
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw delete allow ssh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Turn ufw on status verbose off and reset:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status verbose&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw disable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Reset to default:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw reset&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Visual Studio Code</title>
+   <link href="http://localhost:4000/blog/2019/08/15/visual-studio-code.html"/>
+   <updated>2019-08-15T00:00:00+02:00</updated>
+   <id>http://localhost:4000/blog/2019/08/15/visual-studio-code</id>
+   <content type="html">&lt;h2 id=&quot;install&quot;&gt;Install&lt;/h2&gt;
+
+&lt;p&gt;Download and install &lt;a href=&quot;https://code.visualstudio.com/download&quot;&gt;Visual Studio Code&lt;/a&gt; and install with “Windows integration”.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;extensions&quot;&gt;Extensions&lt;/h2&gt;
+
+&lt;p&gt;The Extensions i have installed are:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer&quot;&gt;Bracket Pair Colorizer&lt;/a&gt;,
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=idleberg.emoji-code&quot;&gt;Emoji Code&lt;/a&gt;,
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens&quot;&gt;GitLens&lt;/a&gt;,
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme&quot;&gt;Material Icon Theme&lt;/a&gt;,
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme&quot;&gt;Material Theme&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;additional&quot;&gt;Additional&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;An Github account&lt;/a&gt;, For web storage.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://travis-ci.org/&quot;&gt;An Travis CI account&lt;/a&gt;, Testing before deploying the new/updated site online.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gitforwindows.org/&quot;&gt;Git for Windows&lt;/a&gt;, Terminal in Windows.&lt;/p&gt;
+
+&lt;p&gt;Inside the terminal create an ssh to github, install “Jakyll” and “Ruby (cli)”&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

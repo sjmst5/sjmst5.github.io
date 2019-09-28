@@ -14,6 +14,9 @@ The server will host the NAS storage for individual users, also one general shar
 All of these shares will have an backup to dropbox.
 This will be running an Samba Share.
 
+
+![frikandel](/media/2019/08/frikandel.jpg "A cute del")
+
 Hypervisor-
 vm- +os -> nextcloud
 depencies

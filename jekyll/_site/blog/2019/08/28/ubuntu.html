@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rob de Kleine - Ubuntu 18.04</title>
+  <meta name="author" content="Rob de Kleine" />
+  <meta name="description" content="The blog of Rob de Kleine" />
+  <link rel="canonical" href="http://localhost:4000/blog/2019/08/28/ubuntu.html" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Rob de Kleine" href="http://localhost:4000/atom.xml" />
+
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="four columns sidebar">
+      <nav>
+  <h1>Hey stranger.</h1>
+  <a href="/">
+    
+    <img src="/logoS.png" id="logo" alt="Blog logo"/>
+    
+  </a>
+  <h2>I'm <a href="/">Rob de Kleine</a>.</h2>
+  <div id="bio">
+    <p>A brief bio or something witty.</p>
+    <p>
+      <code>Boe&#x1F609;</code>
+    </p>
+  </div>
+  <div id="social">
+    Follow me:
+<div id="stalker">
+  
+  <a title="sjmst5 on Github" href="https://github.com/sjmst5">
+    <i class="fa fa-github-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a title="Rob de Kleine on Facebook" href="https://facebook.com/sjmst5">
+    <i class="fa fa-facebook-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</div>
+
+  </div>
+</nav>
+
+    </div>
+
+    <div class="eleven columns content">
+      <p class="meta">
+  August 28, 2019 
+  <a href="/">
+    <i class="home fa fa-home"></i>
+  </a>
+</p>
+
+<h1 class="title">Ubuntu 18.04</h1>
+
+<div id="post">
+  <p>Download and install <a href="https://ubuntu.com/download/desktop">Ubuntu</a> and just install.</p>
+
+<h2 id="root-access">Root access</h2>
+
+<p>Open a terminal by pressing Ctrl+Alt+T (Ctrl+C to clean) <code class="highlighter-rouge">sudo -i (or sudo -s)</code> when promted provide your password. After successful login, the $ prompt would change to # indicating that you are logged in as root user on Ubuntu.</p>
+
+<h2 id="ssh">SSH</h2>
+
+<p><code class="highlighter-rouge">apt install ssh</code></p>
+
+<p>Confirm the SSH server is up and running by executing the command bellow. 
+Look for keyword <code class="highlighter-rouge">Active: active (running)</code>.</p>
+
+<p><code class="highlighter-rouge">service ssh status</code></p>
+
+<p>In an event that you need to temporarily disable SSH or restart:
+<code class="highlighter-rouge">service ssh stop</code></p>
+
+<p>To start again run:</p>
+
+<p><code class="highlighter-rouge">service ssh start</code></p>
+
+<p>In order to completely disable SSH after reboots 
+<code class="highlighter-rouge">systemctl disable ssh</code></p>
+
+<p>To enable SSH again
+<code class="highlighter-rouge">systemctl enable ssh</code>
+Config SSH port
+<code class="highlighter-rouge">nano /etc/ssh/sshd_config</code>
+remove the # before the line you want to edit
+<code class="highlighter-rouge">port 5022</code>
+<code class="highlighter-rouge">PermitRootLogin yes</code></p>
+
+<p>to save and exit</p>
+
+<p><code class="highlighter-rouge">Ctrl + X</code>
+<code class="highlighter-rouge">Y</code>
+<code class="highlighter-rouge">Enter</code></p>
+
+<p>Don’t forget to restart ssh or reboot😉</p>
+
+<h2 id="ifconfig">ifconfig</h2>
+
+<p>To enable ifconfig you need to install net-tools</p>
+
+<p><code class="highlighter-rouge">apt install net-tool</code></p>
+
+<p>run <code class="highlighter-rouge">ifconfig</code></p>
+
+<h2 id="samba-public-local-share">Samba (public local) share</h2>
+
+<p>Now where going to set up an Folder that can be found in the network with Samba</p>
+
+<p>Open an Terminal and install
+<code class="highlighter-rouge">apt-get install samba smbfs</code></p>
+
+<p>Configure samba
+<code class="highlighter-rouge">nano /etc/samba/smb.conf</code></p>
+
+<p>If necesary you can change your workgoup</p>
+
+<p><code class="highlighter-rouge"># Change this to the workgroup/NT-domain name your Samba server will part of
+   workgroup = WORKGROUP</code></p>
+
+<p>Define the folders that you want to share</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Public's share
+</span>[<span class="n">MyPublicShare</span>]
+  <span class="n">comment</span> = <span class="n">YOUR</span> <span class="n">COMMENTS</span>
+  <span class="n">path</span> = /<span class="n">your</span>-<span class="n">share</span>-<span class="n">folder</span>  
+  <span class="n">read</span> <span class="n">only</span> = <span class="n">no</span>  
+  <span class="n">guest</span> <span class="n">ok</span> = <span class="n">yes</span>
+</code></pre></div></div>
+<p>Restart samba <code class="highlighter-rouge">/etc/init.d/smbd restart</code></p>
+
+<p>If not already you can create the share folder: <code class="highlighter-rouge">mkdir /your-share-folder</code></p>
+
+<p>Set the permissions: <code class="highlighter-rouge">chmod 0777 /your-share-folder</code></p>
+
+<p>Acces in Windows Explorer
+Type: <code class="highlighter-rouge">\\&lt;your-ip-address-to-ubuntu&gt;\&lt;your-share-folder&gt;</code></p>
+
+<blockquote>
+  <p>If you have troubles with your Firewall,</p>
+
+  <p>the ports are: udp 137 &amp; 138, tcp 139 &amp; 445.</p>
+</blockquote>
+
+<h2 id="deluge">Deluge</h2>
+
+<p>(Install “Deluge” from the Ubuntu store)</p>
+
+<p>Open an Terminal and intall</p>
+
+<p><code class="highlighter-rouge">apt install deluged deluge-console deluge-webui</code></p>
+
+<p>Run Deluge and check the box Preferences-&gt;Daemon-&gt;Allow Remote Connection</p>
+
+<p><code class="highlighter-rouge">cd /etc/systemd/system/
+touch deluged.service
+nano /etc/systemd/system/deluged.service</code></p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[<span class="n">Unit</span>]
+<span class="n">Description</span>=<span class="n">Deluge</span> <span class="n">Bittorrent</span> <span class="n">Client</span> <span class="n">Daemon</span>
+<span class="n">Documentation</span>=<span class="n">man</span>:<span class="n">deluged</span>
+<span class="n">After</span>=<span class="n">network</span>-<span class="n">online</span>.<span class="n">target</span>
+[<span class="n">Service</span>]
+<span class="n">Type</span>=<span class="n">simple</span>
+<span class="n">User</span>=<span class="n">deluge</span>
+<span class="n">Group</span>=<span class="n">deluge</span>
+<span class="n">UMask</span>=<span class="m">007</span>
+<span class="n">ExecStart</span>=/<span class="n">usr</span>/<span class="n">bin</span>/<span class="n">deluged</span> -<span class="n">d</span>
+<span class="n">Restart</span>=<span class="n">on</span>-<span class="n">failure</span>
+<span class="c"># Time to wait before forcefully stopped.
+</span><span class="n">TimeoutStopSec</span>=<span class="m">300</span>
+[<span class="n">Install</span>]
+<span class="n">WantedBy</span>=<span class="n">multi</span>-<span class="n">user</span>.<span class="n">target</span>
+</code></pre></div></div>
+
+<p>Start Deluge</p>
+
+<p><code class="highlighter-rouge">sudo systemctl start deluged</code></p>
+
+<p>Additionally, enable the Daemon at boot with:</p>
+
+<p><code class="highlighter-rouge">systemctl enable deluged</code></p>
+
+<p>It’s time to set up the user for Deluge Daemon. Use echo to push a new user to the configuration file. 
+Change “user” to the name of the existing user on the system. Be sure that you enter the same password as your system user.</p>
+
+<blockquote>
+  <p>Note: 10 means your system user has full access to modify Deluge.</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">echo "user:password:10" &gt;&gt; ~/.config/deluge/auth</code></p>
+
+<p>Now that the user is correctly configured, kill the daemon and start it back up. This can be done with systemd or killall.</p>
+
+<p><code class="highlighter-rouge">sudo systemctl stop deluged</code></p>
+
+<p><code class="highlighter-rouge">sudo systemctl start deluged</code></p>
+
+<p>Lastly, enable the Deluge WebUI connection.</p>
+
+<p><code class="highlighter-rouge">deluge-web --fork</code></p>
+
+<h2 id="ufw-uncomplicatedfirewall">UFW (UncomplicatedFirewall)</h2>
+
+<p>Install UFW</p>
+
+<p><code class="highlighter-rouge">apt-get install ufw</code></p>
+
+<p>Check te status</p>
+
+<p><code class="highlighter-rouge">ufw status</code></p>
+
+<p>Right now, it will probably tell you it is inactive. Whenever ufw is active, you’ll get a listing of the current rules that looks similar to this:</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Status</span>: <span class="n">active</span>
+
+<span class="n">To</span>               <span class="n">Action</span>      <span class="n">From</span>
+--               ------      ----
+<span class="m">22</span>               <span class="n">ALLOW</span>       <span class="n">Anywhere</span>
+</code></pre></div></div>
+
+<p>Allow Connections
+Example ssh:</p>
+
+<p><code class="highlighter-rouge">ufw allow ssh</code>
+or
+<code class="highlighter-rouge">ufw allow 22/tcp</code>
+or
+<code class="highlighter-rouge">ufw allow 5022/tcp</code></p>
+
+<p>Other samples:</p>
+
+<p><code class="highlighter-rouge">ufw allow www</code> or <code class="highlighter-rouge">ufw allow 80/tcp</code> or <code class="highlighter-rouge">ufw allow ftp</code> or <code class="highlighter-rouge">ufw allow 21/tcp</code></p>
+
+<p>Port ranges:
+<code class="highlighter-rouge">ufw allow 1000:2000/tcp</code>
+<code class="highlighter-rouge">ufw allow 1000:2000/udp</code></p>
+
+<p>IP addresses:
+<code class="highlighter-rouge">ufw allow from 192.168.255.255</code></p>
+
+<p>Deny Connectios:
+<code class="highlighter-rouge">ufw deny 80/tcp</code></p>
+
+<p>Deleting Rules:
+<code class="highlighter-rouge">ufw delete *********</code>
+sample
+<code class="highlighter-rouge">ufw delete allow ssh</code></p>
+
+<p>Turn ufw on status verbose off and reset:</p>
+
+<p><code class="highlighter-rouge">ufw enable</code> <code class="highlighter-rouge">ufw status</code> <code class="highlighter-rouge">ufw status verbose</code> <code class="highlighter-rouge">ufw disable</code></p>
+
+<p>Reset to default:
+<code class="highlighter-rouge">ufw reset</code></p>
+
+</div>
+
+<div id="related">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    
+    <li>
+      <span>29 Aug 2019 &raquo;</span> <a href="/blog/2019/08/29/Storage-Server.html">Storage Server</a>
+    </li>
+    
+    <li>
+      <span>15 Aug 2019 &raquo;</span> <a href="/blog/2019/08/15/visual-studio-code.html">Visual Studio Code</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      <div class="footer">
+        <div class="disclaimer">
+  
+  <p>
+    The postings on this site are my own and don't necessarily represent my 
+    employer’s positions, strategies or opinions.
+  </p>
+  
+
+  <p>
+    © Rob de Kleine,
+    <a href="https://api.whatsapp.com/send?phone=31617768233" target="_blank" rel="external noopener"><i class="fa fa-whatsapp"></i></a>
+    <a href="tel:+31617768233"><i class="fa fa-phone"></i></a>, 2019 - built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+  </p>
+  <p> 
+    <IFRAME SRC="https://api.buienradar.nl/image/1.0/RadarMapNL?w=256&h=256" NORESIZE SCROLLING=NO HSPACE=0 VSPACE=0 FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 WIDTH=256 HEIGHT=256></IFRAME><br>
+    ©Buienradar.nl
+  </p>
+</div>
+      </div>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-xxxx-x']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
