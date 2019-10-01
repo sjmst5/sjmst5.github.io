@@ -102,6 +102,44 @@ After installation the ip of the web user interface will be prompted.</p>
   <li>Click on Accounts from the left panel.</li>
   <li>Click on Users.</li>
   <li>Under the “Users” section, click the Add button.</li>
+  <li>Fill out the name, username, and password fields.</li>
+  <li>Click the Save button.</li>
+</ol>
+
+<h3 id="create-an-storage-pool">Create an storage pool</h3>
+
+<ol>
+  <li>Click on Storage from the left pane.</li>
+  <li>Click on Pools.</li>
+  <li>Under the “Pools” section, click the Add button.</li>
+  <li>Select the Create new pool option.</li>
+  <li>Click the Create Pool button.</li>
+  <li>Type a name for the new storage pool — for example, StorageCollection1.
+    <blockquote>
+      <p>(Optional) Check the Encryption option.</p>
+    </blockquote>
+  </li>
+  <li>Check the Confirm option.</li>
+  <li>Click the I Understand button.</li>
+  <li>Under the “Available Disks” section, select the drives that will participate in the storage pool.</li>
+  <li>Click the Right arrow button to add the drives to the “Data VDevs” section.</li>
+  <li>Under the “Data VDevs” column, use the drop-down menu and select the Raid-Z option to create a storage pool with redundancy and performance.
+These are all the available layout options when setting up a pool with FreeNAS:</li>
+</ol>
+
+<blockquote>
+  <p>Raid-Z — single drive parity similar to RAID5.
+Raid-Z2 — double drive parity similar to RAID6.
+Raid-Z3 — which uses triple drive parity.
+Stripe — data is shared on two drives (similar to RAID0).
+Mirror — copies data on two drives (similar to RAID1, but not limited to 2 disks).</p>
+</blockquote>
+
+<ol>
+  <li>Click the Create button.</li>
+  <li>Click the Confirm option.</li>
+  <li>Click the Create Pool button.</li>
+  <li>Click the Download Recovery Key button if you selected the “Encryption” option, and then the Done button once you saved the file key.</li>
 </ol>
 
 <p><img src="/media/2019/08/frikandel.jpg" alt="frikandel" title="A cute del" /></p>
@@ -122,6 +160,8 @@ depencies</p>
 </ul>
 
 <p>ZFS</p>
+
+<p>https://pureinfotech.com/setup-network-file-sharing-freenas/</p>
 
 </div>
 
