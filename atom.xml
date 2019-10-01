@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-10-01T13:44:53+00:00</updated>
+ <updated>2019-10-01T13:53:56+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -31,6 +31,44 @@ After installation the ip of the web user interface will be prompted.&lt;/p&gt;
   &lt;li&gt;Click on Accounts from the left panel.&lt;/li&gt;
   &lt;li&gt;Click on Users.&lt;/li&gt;
   &lt;li&gt;Under the “Users” section, click the Add button.&lt;/li&gt;
+  &lt;li&gt;Fill out the name, username, and password fields.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;create-an-storage-pool&quot;&gt;Create an storage pool&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Click on Storage from the left pane.&lt;/li&gt;
+  &lt;li&gt;Click on Pools.&lt;/li&gt;
+  &lt;li&gt;Under the “Pools” section, click the Add button.&lt;/li&gt;
+  &lt;li&gt;Select the Create new pool option.&lt;/li&gt;
+  &lt;li&gt;Click the Create Pool button.&lt;/li&gt;
+  &lt;li&gt;Type a name for the new storage pool — for example, StorageCollection1.
+    &lt;blockquote&gt;
+      &lt;p&gt;(Optional) Check the Encryption option.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Check the Confirm option.&lt;/li&gt;
+  &lt;li&gt;Click the I Understand button.&lt;/li&gt;
+  &lt;li&gt;Under the “Available Disks” section, select the drives that will participate in the storage pool.&lt;/li&gt;
+  &lt;li&gt;Click the Right arrow button to add the drives to the “Data VDevs” section.&lt;/li&gt;
+  &lt;li&gt;Under the “Data VDevs” column, use the drop-down menu and select the Raid-Z option to create a storage pool with redundancy and performance.
+These are all the available layout options when setting up a pool with FreeNAS:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Raid-Z — single drive parity similar to RAID5.
+Raid-Z2 — double drive parity similar to RAID6.
+Raid-Z3 — which uses triple drive parity.
+Stripe — data is shared on two drives (similar to RAID0).
+Mirror — copies data on two drives (similar to RAID1, but not limited to 2 disks).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Click the Create button.&lt;/li&gt;
+  &lt;li&gt;Click the Confirm option.&lt;/li&gt;
+  &lt;li&gt;Click the Create Pool button.&lt;/li&gt;
+  &lt;li&gt;Click the Download Recovery Key button if you selected the “Encryption” option, and then the Done button once you saved the file key.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
@@ -51,6 +89,8 @@ depencies&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;ZFS&lt;/p&gt;
+
+&lt;p&gt;https://pureinfotech.com/setup-network-file-sharing-freenas/&lt;/p&gt;
 </content>
  </entry>
  
