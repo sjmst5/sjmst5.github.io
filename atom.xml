@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-10-01T13:12:03+00:00</updated>
+ <updated>2019-10-01T13:30:00+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -17,11 +17,15 @@
    <link href="https://sjmst5.github.io/articles/Storage-Server"/>
    <updated>2019-08-29T00:00:00+00:00</updated>
    <id>https://sjmst5.github.io/articles/Storage Server</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;/media/2019/08/keyboard.jpg&quot; alt=&quot;keyboard&quot; title=&quot;keyboard&quot; /&gt;&lt;/p&gt;
-&lt;h2 id=&quot;freenas&quot;&gt;Freenas&lt;/h2&gt;
+   <content type="html">&lt;h1 id=&quot;freenas&quot;&gt;&lt;strong&gt;Freenas&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/media/2019/08/keyboard.jpg&quot; alt=&quot;keyboard&quot; title=&quot;keyboard&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;install&quot;&gt;Install&lt;/h3&gt;
 &lt;p&gt;Download &lt;a href=&quot;https://www.freenas.org/download-freenas-release/&quot;&gt;Freenas&lt;/a&gt; and burn the iso on an (flash)drive with &lt;a href=&quot;https://sourceforge.net/projects/win32diskimager/&quot;&gt;Win32DiskImager&lt;/a&gt;.
 Boot into the install drive and follow the instructions.
 After installation the ip of the web user interface will be prompted.&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-up-the-basics&quot;&gt;Setting up the basics&lt;/h3&gt;
+&lt;p&gt;Enter your web user interface, &lt;code class=&quot;highlighter-rouge&quot;&gt;Username = root&lt;/code&gt; did you set your pw to &lt;code class=&quot;highlighter-rouge&quot;&gt;toor&lt;/code&gt;😉?&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
 
