@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-10-01T13:34:47+00:00</updated>
+ <updated>2019-10-01T13:44:53+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -24,8 +24,14 @@
 Boot into the install drive and follow the instructions.
 After installation the ip of the web user interface will be prompted.&lt;/p&gt;
 
-&lt;h3 id=&quot;set-an-account&quot;&gt;Set an account&lt;/h3&gt;
 &lt;p&gt;Enter your web user interface, &lt;code class=&quot;highlighter-rouge&quot;&gt;Username = root&lt;/code&gt; did you set your pw to &lt;code class=&quot;highlighter-rouge&quot;&gt;toor&lt;/code&gt;😉?&lt;/p&gt;
+
+&lt;h3 id=&quot;set-an-account&quot;&gt;Set an account&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Click on Accounts from the left panel.&lt;/li&gt;
+  &lt;li&gt;Click on Users.&lt;/li&gt;
+  &lt;li&gt;Under the “Users” section, click the Add button.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
 
