@@ -11,7 +11,7 @@ Download [Freenas](https://www.freenas.org/download-freenas-release/) and burn t
 Boot into the install drive and follow the instructions.
 After installation the ip of the web user interface will be prompted.
 
-### Setting up the basics
+### Set an account
 Enter your web user interface, `Username = root` did you set your pw to `toor`😉? 
 
 
@@ -26,7 +26,6 @@ All of these shares will have an backup to dropbox.
 This will be running an Samba Share.
 
 
-![frikandel](/media/2019/08/frikandel.jpg "A cute del")
 
 Hypervisor-
 vm- +os -> nextcloud

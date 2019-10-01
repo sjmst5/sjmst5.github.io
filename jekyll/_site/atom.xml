@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2019-10-01T15:25:48+02:00</updated>
+ <updated>2019-10-01T15:33:06+02:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Rob de Kleine</name>
@@ -24,7 +24,7 @@
 Boot into the install drive and follow the instructions.
 After installation the ip of the web user interface will be prompted.&lt;/p&gt;
 
-&lt;h3 id=&quot;setting-up-the-basics&quot;&gt;Setting up the basics&lt;/h3&gt;
+&lt;h3 id=&quot;set-an-account&quot;&gt;Set an account&lt;/h3&gt;
 &lt;p&gt;Enter your web user interface, &lt;code class=&quot;highlighter-rouge&quot;&gt;Username = root&lt;/code&gt; did you set your pw to &lt;code class=&quot;highlighter-rouge&quot;&gt;toor&lt;/code&gt;😉?&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
@@ -35,8 +35,6 @@ After installation the ip of the web user interface will be prompted.&lt;/p&gt;
 The server will host the NAS storage for individual users, also one general share.
 All of these shares will have an backup to dropbox.
 This will be running an Samba Share.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hypervisor-
 vm- +os -&amp;gt; nextcloud
