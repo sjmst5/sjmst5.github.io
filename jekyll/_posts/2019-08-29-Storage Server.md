@@ -7,8 +7,12 @@ categories:
 
 ![keyboard](/media/2019/08/keyboard.jpg "keyboard")
 ## Freenas
-Download [Freenas](https://www.freenas.org/download-freenas-release/) and burn the iso on an (flash)drive.
+Download [Freenas](https://www.freenas.org/download-freenas-release/) and burn the iso on an (flash)drive with [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/).
+Boot into the install drive and follow the instructions.
+After installation the ip of the web user interface will be prompted.
 
+
+![frikandel](/media/2019/08/frikandel.jpg "A cute del")
 
 As OS we will we use ___[Proxmox](https://www.proxmox.com/en/downloads/item/proxmox-ve-6-0-iso-installer)___
 
