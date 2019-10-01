@@ -11,9 +11,12 @@ Download [Freenas](https://www.freenas.org/download-freenas-release/) and burn t
 Boot into the install drive and follow the instructions.
 After installation the ip of the web user interface will be prompted.
 
-### Set an account
 Enter your web user interface, `Username = root` did you set your pw to `toor`😉? 
 
+### Set an account
+1. Click on Accounts from the left panel.
+2. Click on Users.
+3. Under the “Users” section, click the Add button.
 
 
 ![frikandel](/media/2019/08/frikandel.jpg "A cute del")
