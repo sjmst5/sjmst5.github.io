@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2019-09-28T18:06:20+02:00</updated>
+ <updated>2019-10-01T13:15:42+02:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Rob de Kleine</name>
@@ -17,7 +17,9 @@
    <link href="http://localhost:4000/blog/2019/08/29/Storage-Server.html"/>
    <updated>2019-08-29T00:00:00+02:00</updated>
    <id>http://localhost:4000/blog/2019/08/29/Storage Server</id>
-   <content type="html">&lt;h2 id=&quot;storage-server&quot;&gt;Storage Server&lt;/h2&gt;
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/media/2019/08/keyboard.jpg&quot; alt=&quot;keyboard&quot; title=&quot;keyboard&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;freenas&quot;&gt;Freenas&lt;/h2&gt;
+&lt;p&gt;Download &lt;a href=&quot;https://www.freenas.org/download-freenas-release/&quot;&gt;Freenas&lt;/a&gt; and burn the iso on an (flash)drive.&lt;/p&gt;
 
 &lt;p&gt;As OS we will we use &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://www.proxmox.com/en/downloads/item/proxmox-ve-6-0-iso-installer&quot;&gt;Proxmox&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 

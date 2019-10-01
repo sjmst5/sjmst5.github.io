@@ -5,7 +5,10 @@ categories:
 - blog
 ---
 
-## Storage Server
+![keyboard](/media/2019/08/keyboard.jpg "keyboard")
+## Freenas
+Download [Freenas](https://www.freenas.org/download-freenas-release/) and burn the iso on an (flash)drive.
+
 
 As OS we will we use ___[Proxmox](https://www.proxmox.com/en/downloads/item/proxmox-ve-6-0-iso-installer)___
 
