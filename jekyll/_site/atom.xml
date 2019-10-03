@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2019-10-03T12:12:23+02:00</updated>
+ <updated>2019-10-03T14:16:10+02:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Rob de Kleine</name>
@@ -37,7 +37,7 @@ After installation the ip of the web user interface will be prompted.&lt;/p&gt;
 
 &lt;h3 id=&quot;create-an-storage-pool&quot;&gt;Create an storage pool&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;Click on Storage from the left pane.&lt;/li&gt;
+  &lt;li&gt;Click on Storage from the left panel.&lt;/li&gt;
   &lt;li&gt;Click on Pools.&lt;/li&gt;
   &lt;li&gt;Under the “Pools” section, click the Add button.&lt;/li&gt;
   &lt;li&gt;Select the Create new pool option.&lt;/li&gt;
@@ -72,7 +72,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 
 &lt;h3 id=&quot;create-an-windows-samba-share&quot;&gt;Create an Windows (Samba) Share&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;Click on Storage from the left pane.&lt;/li&gt;
+  &lt;li&gt;Click on Storage from the left panel.&lt;/li&gt;
   &lt;li&gt;Click on Pools.&lt;/li&gt;
   &lt;li&gt;Click the settings (three-dotted) button next to the pool and select the Add Dataset option.&lt;/li&gt;
   &lt;li&gt;Type a name for the dataset — for example, DataSetOne.&lt;/li&gt;
@@ -81,7 +81,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
   &lt;li&gt;Click the settings (three-dotted) button next to the dataset and select the Edit Permissions option.&lt;/li&gt;
   &lt;li&gt;Under the “User” section, use the drop-down menu and select the user that you created earlier.&lt;/li&gt;
   &lt;li&gt;Click the Save button.&lt;/li&gt;
-  &lt;li&gt;Click on Sharing from the left pane.&lt;/li&gt;
+  &lt;li&gt;Click on Sharing from the left panel.&lt;/li&gt;
   &lt;li&gt;Click on Windows (SMB) Shares.&lt;/li&gt;
   &lt;li&gt;Under the “Samba” section, click the Add button.&lt;/li&gt;
   &lt;li&gt;Click the folder, navigate, and select the dataset you created earlier.&lt;/li&gt;
@@ -93,7 +93,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 &lt;h3 id=&quot;mount-the-share-on-windows&quot;&gt;Mount the share on Windows&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;Open File Explorer on Windows 10.&lt;/li&gt;
-  &lt;li&gt;Click on This PC from the left pane.&lt;/li&gt;
+  &lt;li&gt;Click on This PC from the left panel.&lt;/li&gt;
   &lt;li&gt;On the “Computer” tab, click the Map network drive button.&lt;/li&gt;
   &lt;li&gt;Select a drive letter, but you can leave the default.&lt;/li&gt;
   &lt;li&gt;In the Folder field, type the path of network share on FreeNAS — for example, \10.1.2.158\Data.&lt;/li&gt;
@@ -111,29 +111,35 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 
 &lt;h3 id=&quot;sync-your-files-with-dropbox&quot;&gt;Sync your files with Dropbox&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;Go to your Dropbox account.&lt;/li&gt;
+  &lt;li&gt;Click on the three dots on the lower right-hand side, and choose Developers. 3. Click Create apps to open the DBX platform and create an app.&lt;/li&gt;
+  &lt;li&gt;This process is needed to create a unique access token which FreeNAS and TrueNAS use to identify the account and files.&lt;/li&gt;
+  &lt;li&gt;After the app is created, generate the key by clicking Generate access token.&lt;/li&gt;
+  &lt;li&gt;Go to your FreeNas web user interface&lt;/li&gt;
+  &lt;li&gt;Click on System from the left panel.&lt;/li&gt;
+  &lt;li&gt;Click on Cloud Credentials.&lt;/li&gt;
+  &lt;li&gt;Click the Add button.&lt;/li&gt;
+  &lt;li&gt;Type a name for the Dropbox account — for example, Dropbox 2TB.&lt;/li&gt;
+  &lt;li&gt;Set Provider to Dropbox.&lt;/li&gt;
+  &lt;li&gt;Copy in your access token.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+  &lt;li&gt;Click on Tasks from the left panel&lt;/li&gt;
+  &lt;li&gt;Click on Cloud Sync Tasks.&lt;/li&gt;
+  &lt;li&gt;Select your Dropbox account and schedule a sync task.&lt;/li&gt;
+  &lt;li&gt;Select the folder on the FreeNAS system. This can be an existing dataset to sync to Dropbox or a new dataset to back up files in your Dropbox share.&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Set the kind of sync needed (Push or Pull) and how to transfer the content: Sync, Copy, or Move.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sync copies any changes from the source system to the destination.
+Copy copies new files. Files deleted on the host are not deleted on the destination.
+Move copies files to the destination, then deletes them from the source after the transfer is complete.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;As OS we will we use &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://www.proxmox.com/en/downloads/item/proxmox-ve-6-0-iso-installer&quot;&gt;Proxmox&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Inside of this surrounding we will install an lite &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.1.0-amd64-xfce-CD-1.iso&quot;&gt;Debian&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt; version to create the server.
-The server will host the NAS storage for individual users, also one general share.
-All of these shares will have an backup to dropbox.
-This will be running an Samba Share.&lt;/p&gt;
-
-&lt;p&gt;Hypervisor-
-vm- +os -&amp;gt; nextcloud
-depencies&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;backup Cloud service (Dropbox)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ZFS&lt;/p&gt;
-
-&lt;p&gt;https://pureinfotech.com/setup-network-file-sharing-freenas/&lt;/p&gt;
 </content>
  </entry>
  

@@ -21,7 +21,7 @@ Enter your web user interface, `Username = root` did you set your pw to `toor`�
 5. Click the Save button.
 
 ### Create an storage pool
-1. Click on Storage from the left pane.
+1. Click on Storage from the left panel.
 2. Click on Pools.
 3. Under the “Pools” section, click the Add button.
 4. Select the Create new pool option.
@@ -48,7 +48,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 
 
 ### Create an Windows (Samba) Share
-1. Click on Storage from the left pane.
+1. Click on Storage from the left panel.
 2. Click on Pools.
 3. Click the settings (three-dotted) button next to the pool and select the Add Dataset option.
 4. Type a name for the dataset — for example, DataSetOne.
@@ -57,7 +57,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 7. Click the settings (three-dotted) button next to the dataset and select the Edit Permissions option.
 8. Under the “User” section, use the drop-down menu and select the user that you created earlier.
 9. Click the Save button.
-10. Click on Sharing from the left pane.
+10. Click on Sharing from the left panel.
 11. Click on Windows (SMB) Shares.
 12. Under the “Samba” section, click the Add button.
 13. Click the folder, navigate, and select the dataset you created earlier.
@@ -67,7 +67,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 
 ### Mount the share on Windows
 1. Open File Explorer on Windows 10.
-2. Click on This PC from the left pane.
+2. Click on This PC from the left panel.
 3. On the “Computer” tab, click the Map network drive button.
 4. Select a drive letter, but you can leave the default.
 5. In the Folder field, type the path of network share on FreeNAS — for example, \\10.1.2.158\Data.
@@ -81,30 +81,29 @@ Once you complete the steps, you can go to “This PC” to access the newly Fre
 >Alternatively, if you don’t want to map the folder in File Explorer, you can simply browse to the shared folder typing the path in the address bar, and signing in with the FreeNAS credentials.
 
 ### Sync your files with Dropbox
-1. 
+1. Go to your Dropbox account. 
+2. Click on the three dots on the lower right-hand side, and choose Developers. 3. Click Create apps to open the DBX platform and create an app. 
+4. This process is needed to create a unique access token which FreeNAS and TrueNAS use to identify the account and files. 
+5. After the app is created, generate the key by clicking Generate access token.
+6. Go to your FreeNas web user interface
+7. Click on System from the left panel.
+8. Click on Cloud Credentials.
+9. Click the Add button.
+10. Type a name for the Dropbox account — for example, Dropbox 2TB.
+11. Set Provider to Dropbox.
+12. Copy in your access token.
+13. Click the Save button.
+14. Click on Tasks from the left panel
+15. Click on Cloud Sync Tasks.
+16. Select your Dropbox account and schedule a sync task. 
+17. Select the folder on the FreeNAS system. This can be an existing dataset to sync to Dropbox or a new dataset to back up files in your Dropbox share.
+
+> Note: Set the kind of sync needed (Push or Pull) and how to transfer the content: Sync, Copy, or Move.
+
+> Sync copies any changes from the source system to the destination.
+Copy copies new files. Files deleted on the host are not deleted on the destination.
+Move copies files to the destination, then deletes them from the source after the transfer is complete.
 
 
 
 ![frikandel](/media/2019/08/frikandel.jpg "A cute del")
-
-As OS we will we use ___[Proxmox](https://www.proxmox.com/en/downloads/item/proxmox-ve-6-0-iso-installer)___
-
-Inside of this surrounding we will install an lite ___[Debian](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.1.0-amd64-xfce-CD-1.iso)___ version to create the server.
-The server will host the NAS storage for individual users, also one general share.
-All of these shares will have an backup to dropbox.
-This will be running an Samba Share.
-
-
-
-Hypervisor-
-vm- +os -> nextcloud
-depencies
-
-
-
-
-- backup Cloud service (Dropbox)
-
-ZFS
-
-https://pureinfotech.com/setup-network-file-sharing-freenas/
