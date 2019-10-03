@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-10-03T12:24:39+00:00</updated>
+ <updated>2019-10-03T13:10:01+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -140,6 +140,214 @@ Move copies files to the destination, then deletes them from the source after th
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>PI Network Bridge</title>
+   <link href="https://sjmst5.github.io/articles/PI-Network-Bridge"/>
+   <updated>2019-10-03T00:00:00+00:00</updated>
+   <id>https://sjmst5.github.io/articles/PI Network Bridge</id>
+   <content type="html">&lt;h1 id=&quot;pi-network-brige&quot;&gt;&lt;strong&gt;Pi Network Brige&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/media/2019/08/keyboard.jpg&quot; alt=&quot;keyboard&quot; title=&quot;keyboard&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;easy-raspberry-pi-wifi-bridge&quot;&gt;Easy Raspberry Pi WiFi Bridge&lt;/h3&gt;
+
+&lt;p&gt;A Raspberry Pi WiFi bridge is one of the best ways of providing internet access to a device that only supports an Ethernet connection.&lt;/p&gt;
+
+&lt;p&gt;Raspberry Pi WiFi Bridge
+In this tutorial, we will show you how to setup a WiFi bridge, and how to setup dnsmasq correctly to allow any device to connect through your Pi without issues.&lt;/p&gt;
+
+&lt;p&gt;You will need to keep in mind that you will not see speeds as good as what you would with a direct connection to your router. As there is some overhead with the connection having to run through the Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;Remember to do this tutorial you will need either a WiFi dongle or a Raspberry Pi 3 with the inbuilt WiFi module.&lt;/p&gt;
+
+&lt;p&gt;This tutorial can be combined with our basic VPN access point, you can find the tutorial on how to set that up directly after this tutorial. Basically, it will show how to setup a OpenVPN client and redirect all traffic through that client.&lt;/p&gt;
+
+&lt;p&gt;Please note: This tutorial will require some slight changes if you decide to go down the VPN route, we will explain the necessary changes needed at the end of this tutorial.&lt;/p&gt;
+
+&lt;p&gt;Equipment List
+Below are all the bits and pieces that I used for this Raspberry Pi WiFI bridge tutorial, you will need A Wireless internet connection to be able to complete this tutorial.&lt;/p&gt;
+
+&lt;p&gt;Recommended
+ Raspberry Pi 2 or 3&lt;/p&gt;
+
+&lt;p&gt;Micro SD Card&lt;/p&gt;
+
+&lt;p&gt;Wifi dongle (The Pi 3 has WiFi inbuilt)&lt;/p&gt;
+
+&lt;p&gt;Ethernet Connection&lt;/p&gt;
+
+&lt;p&gt;Optional
+ Raspberry Pi Case&lt;/p&gt;
+
+&lt;p&gt;Setting up the WiFi Bridge
+To setup the Raspberry Pi Wifi bridge we will be utilizing the dnsmasq package, this package handles most of the grunt work for this tutorial.&lt;/p&gt;
+
+&lt;p&gt;Dnsmasq is a package that acts as both a local DHCP server and a local DNS server. We utilize this package so that we can assign IP addresses and process DNS requests through the Raspberry Pi itself and act like a router.&lt;/p&gt;
+
+&lt;p&gt;One of the bonuses to utilizing dnsmasqis that it is very easy to configure while being somewhat lightweight in comparison to the isc-dhcp-server and bind9 packages.&lt;/p&gt;
+
+&lt;p&gt;Remember for this tutorial you will need to have an active WiFi router to connect to and an ethernet device you intend on bridging the Wi-Fi connection to.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Before we get started with installing and setting up our packages, we will first run an update on the Raspberry Pi by entering the following two commands into the terminal.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sudo apt-get update
+sudo apt-get upgrade&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;With that done we can now install the one and only package we will be utilizing, run the following command to install dnsmasq.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sudo apt-get install dnsmasq&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Before we get too far ahead of ourselves, we should setup the wlan0 connection that we plan on using. If you have already setup your wireless connection then you can skip ahead to step 5.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Otherwise open up the wpa_supplicant file by running the following command:&lt;/p&gt;
+
+&lt;p&gt;sudo nano /etc/wpa_supplicant/wpa_supplicant.conf&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Within this file add the following, making sure you replace the ssid with the name of the network you want to connect to and replace the psk value with the password for that network.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;network={
+        ssid=”networkname”
+        psk=”networkpassword”
+}&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;With the wireless network now setup to correctly connect we can proceed with setting up our eth0 interface. This will basically force it to use a static IP address, not setting this up can cause several issues.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To do this we need to modify the dhcpcd.conf file by running the following command:&lt;/p&gt;
+
+&lt;p&gt;sudo nano /etc/dhcpcd.conf
+ Important Note: If you’re on Raspbian stretch then wlan0 and eth0 may need to be changed if predictable network names is turned on. Use the ifconfig command to see the new names, they’re likely quite long and will contain the MAC address.&lt;/p&gt;
+
+&lt;p&gt;Make sure you update these for all the commands in this tutorial.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Within this file we need to add the following lines, make sure you replace eth0 with the correct interface of your ethernet.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;interface eth0
+static ip_address=192.168.220.1/24
+static routers=192.168.220.0
+Now we can save and quit out of the file by pressing Ctrl+X then pressing Y and then Enter.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;With our changes made to dhcpcd configuration we should now restart the service by running the following command:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sudo service dhcpcd restart&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Before we get started with modifying dnsmasq’s configuration we will first make a backup of the original configuration by running the following command.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;With the original configuration now backed up and moved out of the way we can now move on and create our new configuration file by typing the command below into the terminal.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sudo nano /etc/dnsmasq.conf&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Now that we have our new file created we want to add the lines below, these lines basically tell the dnsmasq package how to handle DNS and DHCP traffic.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;interface=eth0       # Use interface eth0&lt;br /&gt;
+listen-address=192.168.220.1   # Specify the address to listen on&lt;br /&gt;
+bind-interfaces      # Bind to the interface
+server=8.8.8.8       # Use Google DNS&lt;br /&gt;
+domain-needed        # Don’t forward short names&lt;br /&gt;
+bogus-priv           # Drop the non-routed address spaces.&lt;br /&gt;
+dhcp-range=192.168.220.50,192.168.220.150,12h # IP range and lease time
+Now we can save and quit out of the file by pressing Ctrl+Xthen pressing Y and then Enter.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We now need to configure the Raspberry Pi’s firewall so that it will forward all traffic from our eth0 connection over to our wlan0 connection. Before we do this we must first enable ipv4p IP Forwarding through the sysctl.conf configuration file, so let’s begin editing it with the following command:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sudo nano /etc/sysctl.conf&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Within this file you need to find the following line, and remove the # from the beginning of it.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Find:&lt;/p&gt;
+
+&lt;p&gt;#net.ipv4.ip_forward=1
+Replace with:&lt;/p&gt;
+
+&lt;p&gt;net.ipv4.ip_forward=1
+Now we can save and quit out of the file by pressing Ctrl+X then pressing Y and then Enter.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Now since we don’t want to have to wait until the next reboot before the configuration is loaded in, we can run the following command to enable it immediately.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sudo sh -c “echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward”&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Now that IPv4 Forwarding is enabled we can reconfigure our firewall so that traffic is forwarded from our eth0 interface over to our wlan0 connection. Basically this means that anyone connecting to the ethernet will be able to utilize our wlan0 internet connection.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Run the following commands to add our new rules to the iptable:&lt;/p&gt;
+
+&lt;p&gt;sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE&lt;br /&gt;
+sudo iptables -A FORWARD -i wlan0 -o eth0 -m state –state RELATED,ESTABLISHED -j ACCEPT&lt;br /&gt;
+sudo iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
+ Note: If you get errors when entering the above lines simply reboot the Pi using sudo reboot.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Of course iptables are flushed on every boot of the Raspberry Pi so we will need to save our new rules somewhere so they are loaded back in on every boot.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To save our new set of rules run the following command.&lt;/p&gt;
+
+&lt;p&gt;sudo sh -c “iptables-save &amp;gt; /etc/iptables.ipv4.nat”&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Now with our new rules safely saved somewhere we need to make this file be loaded back in on every reboot. The most simple way to handle this is to modify the rc.local file.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Run the following command to begin editing the file.&lt;/p&gt;
+
+&lt;p&gt;sudo nano /etc/rc.local&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Now we are in this file, we need to add the line below. Make sure this line appears above exit 0. This line basically reads the settings out of our iptables.ipv4.nat file and loads them into the iptables.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Find:&lt;/p&gt;
+
+&lt;p&gt;exit 0
+Add Above:&lt;/p&gt;
+
+&lt;p&gt;iptables-restore &amp;lt; /etc/iptables.ipv4.nat
+Now we can save and quit out of the file by pressing Ctrl+X then pressing Y and then Enter.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Finally all we need to do is start our dnsmasq service. To do this, all you need to do is run the following command:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sudo service dnsmasq start&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Now you should finally have a fully operational Raspberry Pi WiFi Bridge, you can ensure this is working by plugging any device into its Ethernet port, the bridge should provide an internet connection to the device you plugged it into.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To ensure everything will run smoothly it’s best to try rebooting now. This will ensure that everything will successfully re-enable when the Raspberry Pi is started back up. Run the following command to reboot the Raspberry Pi:&lt;/p&gt;
+
+&lt;p&gt;sudo reboot
+ Setting up the Raspberry Pi WiFi Bridge with a VPN
+This tutorial is fully compatible with the basic VPN router tutorial. However there is one small change you will have to make in step 13, rather than using the commands showcased there, run the commands below.&lt;/p&gt;
+
+&lt;p&gt;Basically the main change you will see here is that instead of redirecting the traffic from wlan0 through the tunnel we will be redirecting the traffic from our eth0 connection to the tunnel.&lt;/p&gt;
+
+&lt;p&gt;sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
+sudo iptables -A FORWARD -i tun0 -o eth0 -m state –state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o tun0 -j ACCEPT
+The rest of the VPN Access Point tutorial can be done without any other changes.&lt;/p&gt;
+
+&lt;p&gt;Hopefully by now you should have a fully operational Raspberry Pi WiFi Bridge. If you come across any issues or have some feedback related to this tutorial, then please don’t hesitate to leave a comment below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;
+ref: https://pimylifeup.com/raspberry-pi-wifi-bridge/&lt;/p&gt;
 </content>
  </entry>
  
