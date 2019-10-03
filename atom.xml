@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-10-03T09:49:59+00:00</updated>
+ <updated>2019-10-03T10:14:11+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -71,6 +71,45 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;create-an-windows-samba-share&quot;&gt;Create an Windows (Samba) Share&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Click on Storage from the left pane.&lt;/li&gt;
+  &lt;li&gt;Click on Pools.&lt;/li&gt;
+  &lt;li&gt;Click the settings (three-dotted) button next to the pool and select the Add Dataset option.&lt;/li&gt;
+  &lt;li&gt;Type a name for the dataset — for example, DataSetOne.&lt;/li&gt;
+  &lt;li&gt;Under the “Share Type” section, select the Windows option.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+  &lt;li&gt;Click the settings (three-dotted) button next to the dataset and select the Edit Permissions option.&lt;/li&gt;
+  &lt;li&gt;Under the “User” section, use the drop-down menu and select the user that you created earlier.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+  &lt;li&gt;Click on Sharing from the left pane.&lt;/li&gt;
+  &lt;li&gt;Click on Windows (SMB) Shares.&lt;/li&gt;
+  &lt;li&gt;Under the “Samba” section, click the Add button.&lt;/li&gt;
+  &lt;li&gt;Click the folder, navigate, and select the dataset you created earlier.&lt;/li&gt;
+  &lt;li&gt;Under the “Name” field, type a name for the folder you’re sharing.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+  &lt;li&gt;Click the Enable Service button (if applicable).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;mount-the-share-on-windows&quot;&gt;Mount the share on Windows&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Open File Explorer on Windows 10.&lt;/li&gt;
+  &lt;li&gt;Click on This PC from the left pane.&lt;/li&gt;
+  &lt;li&gt;On the “Computer” tab, click the Map network drive button.&lt;/li&gt;
+  &lt;li&gt;Select a drive letter, but you can leave the default.&lt;/li&gt;
+  &lt;li&gt;In the Folder field, type the path of network share on FreeNAS — for example, \10.1.2.158\Data.&lt;/li&gt;
+  &lt;li&gt;Check the Reconnect at sign-in option if you want to permanently connect to the FreeNAS location.&lt;/li&gt;
+  &lt;li&gt;Check the Connect using different credentials option in the case you need another account credentials to access the files.&lt;/li&gt;
+  &lt;li&gt;Click the Finish button.&lt;/li&gt;
+  &lt;li&gt;Sign-in with the FreeNAS user account credentials you created earlier.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Once you complete the steps, you can go to “This PC” to access the newly FreeNAS mapped drive.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Alternatively, if you don’t want to map the folder in File Explorer, you can simply browse to the shared folder typing the path in the address bar, and signing in with the FreeNAS credentials.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;sync-your-files-with-dropbox&quot;&gt;Sync your files with Dropbox&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
