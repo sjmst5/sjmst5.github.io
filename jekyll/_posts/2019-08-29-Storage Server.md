@@ -21,7 +21,6 @@ Enter your web user interface, `Username = root` did you set your pw to `toor`�
 5. Click the Save button.
 
 ### Create an storage pool
-
 1. Click on Storage from the left pane.
 2. Click on Pools.
 3. Under the “Pools” section, click the Add button.
@@ -46,6 +45,11 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 13. Click the Confirm option.
 14. Click the Create Pool button.
 15. Click the Download Recovery Key button if you selected the “Encryption” option, and then the Done button once you saved the file key.
+
+
+### Create an Windows (Samba)
+1. 
+
 
 
 ![frikandel](/media/2019/08/frikandel.jpg "A cute del")
