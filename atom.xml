@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-10-03T09:49:10+00:00</updated>
+ <updated>2019-10-03T09:49:59+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -70,7 +70,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
   &lt;li&gt;Click the Download Recovery Key button if you selected the “Encryption” option, and then the Done button once you saved the file key.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;create-an-windows-samba&quot;&gt;Create an Windows (Samba)&lt;/h3&gt;
+&lt;h3 id=&quot;create-an-windows-samba-share&quot;&gt;Create an Windows (Samba) Share&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
