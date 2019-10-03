@@ -47,7 +47,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
 15. Click the Download Recovery Key button if you selected the “Encryption” option, and then the Done button once you saved the file key.
 
 
-### Create an Windows (Samba)
+### Create an Windows (Samba) Share
 1. 
 
 
