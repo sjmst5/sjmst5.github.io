@@ -4,10 +4,10 @@ title: Storage Server
 categories:
 - blog
 ---
-# **Freenas**
+# **FreeNAS**
 ![keyboard](/media/2019/08/keyboard.jpg "keyboard")
 ### Install
-Download [Freenas](https://www.freenas.org/download-freenas-release/) and burn the iso on an (flash)drive with [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/).
+Download [FreeNAS](https://www.freenas.org/download-freenas-release/) and burn the iso on an (flash)drive with [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/).
 Boot into the install drive and follow the instructions.
 After installation the ip of the web user interface will be prompted.
 
@@ -85,7 +85,7 @@ Once you complete the steps, you can go to “This PC” to access the newly Fre
 2. Click on the three dots on the lower right-hand side, and choose Developers. 3. Click Create apps to open the DBX platform and create an app. 
 4. This process is needed to create a unique access token which FreeNAS and TrueNAS use to identify the account and files. 
 5. After the app is created, generate the key by clicking Generate access token.
-6. Go to your FreeNas web user interface
+6. Go to your FreeNAS web user interface
 7. Click on System from the left panel.
 8. Click on Cloud Credentials.
 9. Click the Add button.

@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2019-10-03T14:20:00+02:00</updated>
+ <updated>2019-10-03T14:22:55+02:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Rob de Kleine</name>
@@ -17,10 +17,10 @@
    <link href="http://localhost:4000/blog/2019/10/03/Storage-Server.html"/>
    <updated>2019-10-03T00:00:00+02:00</updated>
    <id>http://localhost:4000/blog/2019/10/03/Storage Server</id>
-   <content type="html">&lt;h1 id=&quot;freenas&quot;&gt;&lt;strong&gt;Freenas&lt;/strong&gt;&lt;/h1&gt;
+   <content type="html">&lt;h1 id=&quot;freenas&quot;&gt;&lt;strong&gt;FreeNAS&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/keyboard.jpg&quot; alt=&quot;keyboard&quot; title=&quot;keyboard&quot; /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;install&quot;&gt;Install&lt;/h3&gt;
-&lt;p&gt;Download &lt;a href=&quot;https://www.freenas.org/download-freenas-release/&quot;&gt;Freenas&lt;/a&gt; and burn the iso on an (flash)drive with &lt;a href=&quot;https://sourceforge.net/projects/win32diskimager/&quot;&gt;Win32DiskImager&lt;/a&gt;.
+&lt;p&gt;Download &lt;a href=&quot;https://www.freenas.org/download-freenas-release/&quot;&gt;FreeNAS&lt;/a&gt; and burn the iso on an (flash)drive with &lt;a href=&quot;https://sourceforge.net/projects/win32diskimager/&quot;&gt;Win32DiskImager&lt;/a&gt;.
 Boot into the install drive and follow the instructions.
 After installation the ip of the web user interface will be prompted.&lt;/p&gt;
 
@@ -115,7 +115,7 @@ Mirror — copies data on two drives (similar to RAID1, but not limited to 2 dis
   &lt;li&gt;Click on the three dots on the lower right-hand side, and choose Developers. 3. Click Create apps to open the DBX platform and create an app.&lt;/li&gt;
   &lt;li&gt;This process is needed to create a unique access token which FreeNAS and TrueNAS use to identify the account and files.&lt;/li&gt;
   &lt;li&gt;After the app is created, generate the key by clicking Generate access token.&lt;/li&gt;
-  &lt;li&gt;Go to your FreeNas web user interface&lt;/li&gt;
+  &lt;li&gt;Go to your FreeNAS web user interface&lt;/li&gt;
   &lt;li&gt;Click on System from the left panel.&lt;/li&gt;
   &lt;li&gt;Click on Cloud Credentials.&lt;/li&gt;
   &lt;li&gt;Click the Add button.&lt;/li&gt;
