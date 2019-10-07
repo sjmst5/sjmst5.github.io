@@ -1,10 +1,22 @@
 [
 
+{"date": "Mon, 07 Oct 2019 00:00:00 +0200",
+"categories": ["blog"],
+"tags": [],
+"title": "HOLIDAY",
+"url": "/blog/2019/10/07/HOLIDAY.html"},
+
 {"date": "Thu, 03 Oct 2019 00:00:00 +0200",
 "categories": ["blog"],
 "tags": [],
 "title": "Storage Server",
 "url": "/blog/2019/10/03/Storage-Server.html"},
+
+{"date": "Thu, 03 Oct 2019 00:00:00 +0200",
+"categories": ["blog"],
+"tags": [],
+"title": "PI Network Bridge",
+"url": "/blog/2019/10/03/PI-Network-Bridge.html"},
 
 {"date": "Wed, 28 Aug 2019 00:00:00 +0200",
 "categories": ["blog"],

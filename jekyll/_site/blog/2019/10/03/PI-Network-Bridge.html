@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rob de Kleine - PI Network Bridge</title>
+  <meta name="author" content="Rob de Kleine" />
+  <meta name="description" content="The blog of Rob de Kleine" />
+  <link rel="canonical" href="http://localhost:4000/blog/2019/10/03/PI-Network-Bridge.html" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Rob de Kleine" href="http://localhost:4000/atom.xml" />
+
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="four columns sidebar">
+      <nav>
+  <h1>Hey stranger.</h1>
+  <a href="/">
+    
+    <img src="/logoS.png" id="logo" alt="Blog logo"/>
+    
+  </a>
+  <h2>I'm <a href="/">Rob de Kleine</a>.</h2>
+  <div id="bio">
+    <p>A brief bio or something witty.</p>
+    <p>
+      <code>Boe&#x1F609;</code>
+    </p>
+  </div>
+  <div id="social">
+    Follow me:
+<div id="stalker">
+  
+  <a title="sjmst5 on Github" href="https://github.com/sjmst5">
+    <i class="fa fa-github-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a title="Rob de Kleine on Facebook" href="https://facebook.com/sjmst5">
+    <i class="fa fa-facebook-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</div>
+
+  </div>
+</nav>
+
+    </div>
+
+    <div class="eleven columns content">
+      <p class="meta">
+  October 03, 2019 
+  <a href="/">
+    <i class="home fa fa-home"></i>
+  </a>
+</p>
+
+<h1 class="title">PI Network Bridge</h1>
+
+<div id="post">
+  <h1 id="pi-network-brige"><strong>Pi Network Brige</strong></h1>
+<p><img src="/media/2019/08/keyboard.jpg" alt="keyboard" title="keyboard" /></p>
+<h3 id="easy-raspberry-pi-wifi-bridge">Easy Raspberry Pi WiFi Bridge</h3>
+
+<p>A Raspberry Pi WiFi bridge is one of the best ways of providing internet access to a device that only supports an Ethernet connection.</p>
+
+<p>Raspberry Pi WiFi Bridge
+In this tutorial, we will show you how to setup a WiFi bridge, and how to setup dnsmasq correctly to allow any device to connect through your Pi without issues.</p>
+
+<p>You will need to keep in mind that you will not see speeds as good as what you would with a direct connection to your router. As there is some overhead with the connection having to run through the Raspberry Pi.</p>
+
+<p>Remember to do this tutorial you will need either a WiFi dongle or a Raspberry Pi 3 with the inbuilt WiFi module.</p>
+
+<p>This tutorial can be combined with our basic VPN access point, you can find the tutorial on how to set that up directly after this tutorial. Basically, it will show how to setup a OpenVPN client and redirect all traffic through that client.</p>
+
+<p>Please note: This tutorial will require some slight changes if you decide to go down the VPN route, we will explain the necessary changes needed at the end of this tutorial.</p>
+
+<p>Equipment List
+Below are all the bits and pieces that I used for this Raspberry Pi WiFI bridge tutorial, you will need A Wireless internet connection to be able to complete this tutorial.</p>
+
+<p>Recommended
+ Raspberry Pi 2 or 3</p>
+
+<p>Micro SD Card</p>
+
+<p>Wifi dongle (The Pi 3 has WiFi inbuilt)</p>
+
+<p>Ethernet Connection</p>
+
+<p>Optional
+ Raspberry Pi Case</p>
+
+<p>Setting up the WiFi Bridge
+To setup the Raspberry Pi Wifi bridge we will be utilizing the dnsmasq package, this package handles most of the grunt work for this tutorial.</p>
+
+<p>Dnsmasq is a package that acts as both a local DHCP server and a local DNS server. We utilize this package so that we can assign IP addresses and process DNS requests through the Raspberry Pi itself and act like a router.</p>
+
+<p>One of the bonuses to utilizing dnsmasqis that it is very easy to configure while being somewhat lightweight in comparison to the isc-dhcp-server and bind9 packages.</p>
+
+<p>Remember for this tutorial you will need to have an active WiFi router to connect to and an ethernet device you intend on bridging the Wi-Fi connection to.</p>
+
+<ol>
+  <li>Before we get started with installing and setting up our packages, we will first run an update on the Raspberry Pi by entering the following two commands into the terminal.</li>
+</ol>
+
+<p>sudo apt-get update
+sudo apt-get upgrade</p>
+<ol>
+  <li>With that done we can now install the one and only package we will be utilizing, run the following command to install dnsmasq.</li>
+</ol>
+
+<p>sudo apt-get install dnsmasq</p>
+<ol>
+  <li>Before we get too far ahead of ourselves, we should setup the wlan0 connection that we plan on using. If you have already setup your wireless connection then you can skip ahead to step 5.</li>
+</ol>
+
+<p>Otherwise open up the wpa_supplicant file by running the following command:</p>
+
+<p>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</p>
+<ol>
+  <li>Within this file add the following, making sure you replace the ssid with the name of the network you want to connect to and replace the psk value with the password for that network.</li>
+</ol>
+
+<p>network={
+        ssid=”networkname”
+        psk=”networkpassword”
+}</p>
+<ol>
+  <li>With the wireless network now setup to correctly connect we can proceed with setting up our eth0 interface. This will basically force it to use a static IP address, not setting this up can cause several issues.</li>
+</ol>
+
+<p>To do this we need to modify the dhcpcd.conf file by running the following command:</p>
+
+<p>sudo nano /etc/dhcpcd.conf
+ Important Note: If you’re on Raspbian stretch then wlan0 and eth0 may need to be changed if predictable network names is turned on. Use the ifconfig command to see the new names, they’re likely quite long and will contain the MAC address.</p>
+
+<p>Make sure you update these for all the commands in this tutorial.</p>
+
+<ol>
+  <li>Within this file we need to add the following lines, make sure you replace eth0 with the correct interface of your ethernet.</li>
+</ol>
+
+<p>interface eth0
+static ip_address=192.168.220.1/24
+static routers=192.168.220.0
+Now we can save and quit out of the file by pressing Ctrl+X then pressing Y and then Enter.</p>
+
+<ol>
+  <li>With our changes made to dhcpcd configuration we should now restart the service by running the following command:</li>
+</ol>
+
+<p>sudo service dhcpcd restart</p>
+<ol>
+  <li>Before we get started with modifying dnsmasq’s configuration we will first make a backup of the original configuration by running the following command.</li>
+</ol>
+
+<p>sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig</p>
+<ol>
+  <li>With the original configuration now backed up and moved out of the way we can now move on and create our new configuration file by typing the command below into the terminal.</li>
+</ol>
+
+<p>sudo nano /etc/dnsmasq.conf</p>
+<ol>
+  <li>Now that we have our new file created we want to add the lines below, these lines basically tell the dnsmasq package how to handle DNS and DHCP traffic.</li>
+</ol>
+
+<p>interface=eth0       # Use interface eth0<br />
+listen-address=192.168.220.1   # Specify the address to listen on<br />
+bind-interfaces      # Bind to the interface
+server=8.8.8.8       # Use Google DNS<br />
+domain-needed        # Don’t forward short names<br />
+bogus-priv           # Drop the non-routed address spaces.<br />
+dhcp-range=192.168.220.50,192.168.220.150,12h # IP range and lease time
+Now we can save and quit out of the file by pressing Ctrl+Xthen pressing Y and then Enter.</p>
+
+<ol>
+  <li>We now need to configure the Raspberry Pi’s firewall so that it will forward all traffic from our eth0 connection over to our wlan0 connection. Before we do this we must first enable ipv4p IP Forwarding through the sysctl.conf configuration file, so let’s begin editing it with the following command:</li>
+</ol>
+
+<p>sudo nano /etc/sysctl.conf</p>
+<ol>
+  <li>Within this file you need to find the following line, and remove the # from the beginning of it.</li>
+</ol>
+
+<p>Find:</p>
+
+<p>#net.ipv4.ip_forward=1
+Replace with:</p>
+
+<p>net.ipv4.ip_forward=1
+Now we can save and quit out of the file by pressing Ctrl+X then pressing Y and then Enter.</p>
+
+<ol>
+  <li>Now since we don’t want to have to wait until the next reboot before the configuration is loaded in, we can run the following command to enable it immediately.</li>
+</ol>
+
+<p>sudo sh -c “echo 1 &gt; /proc/sys/net/ipv4/ip_forward”</p>
+<ol>
+  <li>Now that IPv4 Forwarding is enabled we can reconfigure our firewall so that traffic is forwarded from our eth0 interface over to our wlan0 connection. Basically this means that anyone connecting to the ethernet will be able to utilize our wlan0 internet connection.</li>
+</ol>
+
+<p>Run the following commands to add our new rules to the iptable:</p>
+
+<p>sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<br />
+sudo iptables -A FORWARD -i wlan0 -o eth0 -m state –state RELATED,ESTABLISHED -j ACCEPT<br />
+sudo iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
+ Note: If you get errors when entering the above lines simply reboot the Pi using sudo reboot.</p>
+
+<ol>
+  <li>Of course iptables are flushed on every boot of the Raspberry Pi so we will need to save our new rules somewhere so they are loaded back in on every boot.</li>
+</ol>
+
+<p>To save our new set of rules run the following command.</p>
+
+<p>sudo sh -c “iptables-save &gt; /etc/iptables.ipv4.nat”</p>
+<ol>
+  <li>Now with our new rules safely saved somewhere we need to make this file be loaded back in on every reboot. The most simple way to handle this is to modify the rc.local file.</li>
+</ol>
+
+<p>Run the following command to begin editing the file.</p>
+
+<p>sudo nano /etc/rc.local</p>
+<ol>
+  <li>Now we are in this file, we need to add the line below. Make sure this line appears above exit 0. This line basically reads the settings out of our iptables.ipv4.nat file and loads them into the iptables.</li>
+</ol>
+
+<p>Find:</p>
+
+<p>exit 0
+Add Above:</p>
+
+<p>iptables-restore &lt; /etc/iptables.ipv4.nat
+Now we can save and quit out of the file by pressing Ctrl+X then pressing Y and then Enter.</p>
+
+<ol>
+  <li>Finally all we need to do is start our dnsmasq service. To do this, all you need to do is run the following command:</li>
+</ol>
+
+<p>sudo service dnsmasq start</p>
+<ol>
+  <li>Now you should finally have a fully operational Raspberry Pi WiFi Bridge, you can ensure this is working by plugging any device into its Ethernet port, the bridge should provide an internet connection to the device you plugged it into.</li>
+</ol>
+
+<p>To ensure everything will run smoothly it’s best to try rebooting now. This will ensure that everything will successfully re-enable when the Raspberry Pi is started back up. Run the following command to reboot the Raspberry Pi:</p>
+
+<p>sudo reboot
+ Setting up the Raspberry Pi WiFi Bridge with a VPN
+This tutorial is fully compatible with the basic VPN router tutorial. However there is one small change you will have to make in step 13, rather than using the commands showcased there, run the commands below.</p>
+
+<p>Basically the main change you will see here is that instead of redirecting the traffic from wlan0 through the tunnel we will be redirecting the traffic from our eth0 connection to the tunnel.</p>
+
+<p>sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
+sudo iptables -A FORWARD -i tun0 -o eth0 -m state –state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o tun0 -j ACCEPT
+The rest of the VPN Access Point tutorial can be done without any other changes.</p>
+
+<p>Hopefully by now you should have a fully operational Raspberry Pi WiFi Bridge. If you come across any issues or have some feedback related to this tutorial, then please don’t hesitate to leave a comment below.</p>
+
+<p><img src="/media/2019/08/frikandel.jpg" alt="frikandel" title="A cute del" />
+ref: https://pimylifeup.com/raspberry-pi-wifi-bridge/</p>
+
+</div>
+
+<div id="related">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    
+    <li>
+      <span>07 Oct 2019 &raquo;</span> <a href="/blog/2019/10/07/HOLIDAY.html">HOLIDAY</a>
+    </li>
+    
+    <li>
+      <span>03 Oct 2019 &raquo;</span> <a href="/blog/2019/10/03/Storage-Server.html">Storage Server</a>
+    </li>
+    
+    <li>
+      <span>28 Aug 2019 &raquo;</span> <a href="/blog/2019/08/28/ubuntu.html">Ubuntu 18.04</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      <div class="footer">
+        <div class="disclaimer">
+  
+  <p>
+    The postings on this site are my own and don't necessarily represent my 
+    employer’s positions, strategies or opinions.
+  </p>
+  
+
+  <p>
+    © Rob de Kleine,
+    <a href="https://api.whatsapp.com/send?phone=31617768233" target="_blank" rel="external noopener"><i class="fa fa-whatsapp"></i></a>
+    <a href="tel:+31617768233"><i class="fa fa-phone"></i></a>, 2019 - built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+  </p>
+  <p> 
+    <IFRAME SRC="https://api.buienradar.nl/image/1.0/RadarMapNL?w=256&h=256" NORESIZE SCROLLING=NO HSPACE=0 VSPACE=0 FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 WIDTH=256 HEIGHT=256></IFRAME><br>
+    ©Buienradar.nl
+  </p>
+</div>
+      </div>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-xxxx-x']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
