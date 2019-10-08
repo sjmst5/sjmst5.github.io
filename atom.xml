@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-10-08T10:19:03+00:00</updated>
+ <updated>2019-10-08T10:33:58+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -23,137 +23,6 @@
 &lt;h3 id=&quot;starting-18-november-2019-im-on-holiday&quot;&gt;Starting 18 November 2019 i’m on holiday.&lt;/h3&gt;
 &lt;h3 id=&quot;see-you-guys-back-in-2020&quot;&gt;See you guys back in 2020!!&lt;/h3&gt;
 &lt;h3 id=&quot;greetings&quot;&gt;Greetings&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Storage Server</title>
-   <link href="https://sjmst5.github.io/articles/Storage-Server"/>
-   <updated>2019-10-03T00:00:00+00:00</updated>
-   <id>https://sjmst5.github.io/articles/Storage Server</id>
-   <content type="html">&lt;h1 id=&quot;freenas&quot;&gt;&lt;strong&gt;FreeNAS&lt;/strong&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;/media/2019/08/keyboard.jpg&quot; alt=&quot;keyboard&quot; title=&quot;keyboard&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;install&quot;&gt;Install&lt;/h3&gt;
-&lt;p&gt;Download &lt;a href=&quot;https://www.freenas.org/download-freenas-release/&quot;&gt;FreeNAS&lt;/a&gt; and burn the iso on an (flash)drive with &lt;a href=&quot;https://sourceforge.net/projects/win32diskimager/&quot;&gt;Win32DiskImager&lt;/a&gt;.
-Boot into the install drive and follow the instructions.
-After installation the ip of the web user interface will be prompted.&lt;/p&gt;
-
-&lt;p&gt;Enter your web user interface, &lt;code class=&quot;highlighter-rouge&quot;&gt;Username = root&lt;/code&gt; did you set your pw to &lt;code class=&quot;highlighter-rouge&quot;&gt;toor&lt;/code&gt;😉?&lt;/p&gt;
-
-&lt;h3 id=&quot;set-an-account&quot;&gt;Set an account&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Click on Accounts from the left panel.&lt;/li&gt;
-  &lt;li&gt;Click on Users.&lt;/li&gt;
-  &lt;li&gt;Under the “Users” section, click the Add button.&lt;/li&gt;
-  &lt;li&gt;Fill out the name, username, and password fields.&lt;/li&gt;
-  &lt;li&gt;Click the Save button.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;create-an-storage-pool&quot;&gt;Create an storage pool&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Click on Storage from the left panel.&lt;/li&gt;
-  &lt;li&gt;Click on Pools.&lt;/li&gt;
-  &lt;li&gt;Under the “Pools” section, click the Add button.&lt;/li&gt;
-  &lt;li&gt;Select the Create new pool option.&lt;/li&gt;
-  &lt;li&gt;Click the Create Pool button.&lt;/li&gt;
-  &lt;li&gt;Type a name for the new storage pool — for example, StorageCollection1.
-    &lt;blockquote&gt;
-      &lt;p&gt;(Optional) Check the Encryption option.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Check the Confirm option.&lt;/li&gt;
-  &lt;li&gt;Click the I Understand button.&lt;/li&gt;
-  &lt;li&gt;Under the “Available Disks” section, select the drives that will participate in the storage pool.&lt;/li&gt;
-  &lt;li&gt;Click the Right arrow button to add the drives to the “Data VDevs” section.&lt;/li&gt;
-  &lt;li&gt;Under the “Data VDevs” column, use the drop-down menu and select the Raid-Z option to create a storage pool with redundancy and performance.
-These are all the available layout options when setting up a pool with FreeNAS:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Raid-Z — single drive parity similar to RAID5.
-Raid-Z2 — double drive parity similar to RAID6.
-Raid-Z3 — which uses triple drive parity.
-Stripe — data is shared on two drives (similar to RAID0).
-Mirror — copies data on two drives (similar to RAID1, but not limited to 2 disks).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Click the Create button.&lt;/li&gt;
-  &lt;li&gt;Click the Confirm option.&lt;/li&gt;
-  &lt;li&gt;Click the Create Pool button.&lt;/li&gt;
-  &lt;li&gt;Click the Download Recovery Key button if you selected the “Encryption” option, and then the Done button once you saved the file key.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;create-an-windows-samba-share&quot;&gt;Create an Windows (Samba) Share&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Click on Storage from the left panel.&lt;/li&gt;
-  &lt;li&gt;Click on Pools.&lt;/li&gt;
-  &lt;li&gt;Click the settings (three-dotted) button next to the pool and select the Add Dataset option.&lt;/li&gt;
-  &lt;li&gt;Type a name for the dataset — for example, DataSetOne.&lt;/li&gt;
-  &lt;li&gt;Under the “Share Type” section, select the Windows option.&lt;/li&gt;
-  &lt;li&gt;Click the Save button.&lt;/li&gt;
-  &lt;li&gt;Click the settings (three-dotted) button next to the dataset and select the Edit Permissions option.&lt;/li&gt;
-  &lt;li&gt;Under the “User” section, use the drop-down menu and select the user that you created earlier.&lt;/li&gt;
-  &lt;li&gt;Click the Save button.&lt;/li&gt;
-  &lt;li&gt;Click on Sharing from the left panel.&lt;/li&gt;
-  &lt;li&gt;Click on Windows (SMB) Shares.&lt;/li&gt;
-  &lt;li&gt;Under the “Samba” section, click the Add button.&lt;/li&gt;
-  &lt;li&gt;Click the folder, navigate, and select the dataset you created earlier.&lt;/li&gt;
-  &lt;li&gt;Under the “Name” field, type a name for the folder you’re sharing.&lt;/li&gt;
-  &lt;li&gt;Click the Save button.&lt;/li&gt;
-  &lt;li&gt;Click the Enable Service button (if applicable).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;mount-the-share-on-windows&quot;&gt;Mount the share on Windows&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Open File Explorer on Windows 10.&lt;/li&gt;
-  &lt;li&gt;Click on This PC from the left panel.&lt;/li&gt;
-  &lt;li&gt;On the “Computer” tab, click the Map network drive button.&lt;/li&gt;
-  &lt;li&gt;Select a drive letter, but you can leave the default.&lt;/li&gt;
-  &lt;li&gt;In the Folder field, type the path of network share on FreeNAS — for example, \10.1.2.158\Data.&lt;/li&gt;
-  &lt;li&gt;Check the Reconnect at sign-in option if you want to permanently connect to the FreeNAS location.&lt;/li&gt;
-  &lt;li&gt;Check the Connect using different credentials option in the case you need another account credentials to access the files.&lt;/li&gt;
-  &lt;li&gt;Click the Finish button.&lt;/li&gt;
-  &lt;li&gt;Sign-in with the FreeNAS user account credentials you created earlier.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Once you complete the steps, you can go to “This PC” to access the newly FreeNAS mapped drive.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Alternatively, if you don’t want to map the folder in File Explorer, you can simply browse to the shared folder typing the path in the address bar, and signing in with the FreeNAS credentials.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;sync-your-files-with-dropbox&quot;&gt;Sync your files with Dropbox&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Go to your Dropbox account.&lt;/li&gt;
-  &lt;li&gt;Click on the three dots on the lower right-hand side, and choose Developers. 3. Click Create apps to open the DBX platform and create an app.&lt;/li&gt;
-  &lt;li&gt;This process is needed to create a unique access token which FreeNAS and TrueNAS use to identify the account and files.&lt;/li&gt;
-  &lt;li&gt;After the app is created, generate the key by clicking Generate access token.&lt;/li&gt;
-  &lt;li&gt;Go to your FreeNAS web user interface&lt;/li&gt;
-  &lt;li&gt;Click on System from the left panel.&lt;/li&gt;
-  &lt;li&gt;Click on Cloud Credentials.&lt;/li&gt;
-  &lt;li&gt;Click the Add button.&lt;/li&gt;
-  &lt;li&gt;Type a name for the Dropbox account — for example, Dropbox 2TB.&lt;/li&gt;
-  &lt;li&gt;Set Provider to Dropbox.&lt;/li&gt;
-  &lt;li&gt;Copy in your access token.&lt;/li&gt;
-  &lt;li&gt;Click the Save button.&lt;/li&gt;
-  &lt;li&gt;Click on Tasks from the left panel&lt;/li&gt;
-  &lt;li&gt;Click on Cloud Sync Tasks.&lt;/li&gt;
-  &lt;li&gt;Select your Dropbox account and schedule a sync task.&lt;/li&gt;
-  &lt;li&gt;Select the folder on the FreeNAS system. This can be an existing dataset to sync to Dropbox or a new dataset to back up files in your Dropbox share.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Note: Set the kind of sync needed (Push or Pull) and how to transfer the content: Sync, Copy, or Move.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sync copies any changes from the source system to the destination.
-Copy copies new files. Files deleted on the host are not deleted on the destination.
-Move copies files to the destination, then deletes them from the source after the transfer is complete.&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
 </content>
@@ -364,6 +233,137 @@ The rest of the VPN Access Point tutorial can be done without any other changes.
 
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;
 ref: https://pimylifeup.com/raspberry-pi-wifi-bridge/&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Storage Server</title>
+   <link href="https://sjmst5.github.io/articles/Storage-Server"/>
+   <updated>2019-09-18T00:00:00+00:00</updated>
+   <id>https://sjmst5.github.io/articles/Storage Server</id>
+   <content type="html">&lt;h1 id=&quot;freenas&quot;&gt;&lt;strong&gt;FreeNAS&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/media/2019/08/keyboard.jpg&quot; alt=&quot;keyboard&quot; title=&quot;keyboard&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;install&quot;&gt;Install&lt;/h3&gt;
+&lt;p&gt;Download &lt;a href=&quot;https://www.freenas.org/download-freenas-release/&quot;&gt;FreeNAS&lt;/a&gt; and burn the iso on an (flash)drive with &lt;a href=&quot;https://sourceforge.net/projects/win32diskimager/&quot;&gt;Win32DiskImager&lt;/a&gt;.
+Boot into the install drive and follow the instructions.
+After installation the ip of the web user interface will be prompted.&lt;/p&gt;
+
+&lt;p&gt;Enter your web user interface, &lt;code class=&quot;highlighter-rouge&quot;&gt;Username = root&lt;/code&gt; did you set your pw to &lt;code class=&quot;highlighter-rouge&quot;&gt;toor&lt;/code&gt;😉?&lt;/p&gt;
+
+&lt;h3 id=&quot;set-an-account&quot;&gt;Set an account&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Click on Accounts from the left panel.&lt;/li&gt;
+  &lt;li&gt;Click on Users.&lt;/li&gt;
+  &lt;li&gt;Under the “Users” section, click the Add button.&lt;/li&gt;
+  &lt;li&gt;Fill out the name, username, and password fields.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;create-an-storage-pool&quot;&gt;Create an storage pool&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Click on Storage from the left panel.&lt;/li&gt;
+  &lt;li&gt;Click on Pools.&lt;/li&gt;
+  &lt;li&gt;Under the “Pools” section, click the Add button.&lt;/li&gt;
+  &lt;li&gt;Select the Create new pool option.&lt;/li&gt;
+  &lt;li&gt;Click the Create Pool button.&lt;/li&gt;
+  &lt;li&gt;Type a name for the new storage pool — for example, StorageCollection1.
+    &lt;blockquote&gt;
+      &lt;p&gt;(Optional) Check the Encryption option.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Check the Confirm option.&lt;/li&gt;
+  &lt;li&gt;Click the I Understand button.&lt;/li&gt;
+  &lt;li&gt;Under the “Available Disks” section, select the drives that will participate in the storage pool.&lt;/li&gt;
+  &lt;li&gt;Click the Right arrow button to add the drives to the “Data VDevs” section.&lt;/li&gt;
+  &lt;li&gt;Under the “Data VDevs” column, use the drop-down menu and select the Raid-Z option to create a storage pool with redundancy and performance.
+These are all the available layout options when setting up a pool with FreeNAS:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Raid-Z — single drive parity similar to RAID5.
+Raid-Z2 — double drive parity similar to RAID6.
+Raid-Z3 — which uses triple drive parity.
+Stripe — data is shared on two drives (similar to RAID0).
+Mirror — copies data on two drives (similar to RAID1, but not limited to 2 disks).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Click the Create button.&lt;/li&gt;
+  &lt;li&gt;Click the Confirm option.&lt;/li&gt;
+  &lt;li&gt;Click the Create Pool button.&lt;/li&gt;
+  &lt;li&gt;Click the Download Recovery Key button if you selected the “Encryption” option, and then the Done button once you saved the file key.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;create-an-windows-samba-share&quot;&gt;Create an Windows (Samba) Share&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Click on Storage from the left panel.&lt;/li&gt;
+  &lt;li&gt;Click on Pools.&lt;/li&gt;
+  &lt;li&gt;Click the settings (three-dotted) button next to the pool and select the Add Dataset option.&lt;/li&gt;
+  &lt;li&gt;Type a name for the dataset — for example, DataSetOne.&lt;/li&gt;
+  &lt;li&gt;Under the “Share Type” section, select the Windows option.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+  &lt;li&gt;Click the settings (three-dotted) button next to the dataset and select the Edit Permissions option.&lt;/li&gt;
+  &lt;li&gt;Under the “User” section, use the drop-down menu and select the user that you created earlier.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+  &lt;li&gt;Click on Sharing from the left panel.&lt;/li&gt;
+  &lt;li&gt;Click on Windows (SMB) Shares.&lt;/li&gt;
+  &lt;li&gt;Under the “Samba” section, click the Add button.&lt;/li&gt;
+  &lt;li&gt;Click the folder, navigate, and select the dataset you created earlier.&lt;/li&gt;
+  &lt;li&gt;Under the “Name” field, type a name for the folder you’re sharing.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+  &lt;li&gt;Click the Enable Service button (if applicable).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;mount-the-share-on-windows&quot;&gt;Mount the share on Windows&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Open File Explorer on Windows 10.&lt;/li&gt;
+  &lt;li&gt;Click on This PC from the left panel.&lt;/li&gt;
+  &lt;li&gt;On the “Computer” tab, click the Map network drive button.&lt;/li&gt;
+  &lt;li&gt;Select a drive letter, but you can leave the default.&lt;/li&gt;
+  &lt;li&gt;In the Folder field, type the path of network share on FreeNAS — for example, \10.1.2.158\Data.&lt;/li&gt;
+  &lt;li&gt;Check the Reconnect at sign-in option if you want to permanently connect to the FreeNAS location.&lt;/li&gt;
+  &lt;li&gt;Check the Connect using different credentials option in the case you need another account credentials to access the files.&lt;/li&gt;
+  &lt;li&gt;Click the Finish button.&lt;/li&gt;
+  &lt;li&gt;Sign-in with the FreeNAS user account credentials you created earlier.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Once you complete the steps, you can go to “This PC” to access the newly FreeNAS mapped drive.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Alternatively, if you don’t want to map the folder in File Explorer, you can simply browse to the shared folder typing the path in the address bar, and signing in with the FreeNAS credentials.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;sync-your-files-with-dropbox&quot;&gt;Sync your files with Dropbox&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Go to your Dropbox account.&lt;/li&gt;
+  &lt;li&gt;Click on the three dots on the lower right-hand side, and choose Developers. 3. Click Create apps to open the DBX platform and create an app.&lt;/li&gt;
+  &lt;li&gt;This process is needed to create a unique access token which FreeNAS and TrueNAS use to identify the account and files.&lt;/li&gt;
+  &lt;li&gt;After the app is created, generate the key by clicking Generate access token.&lt;/li&gt;
+  &lt;li&gt;Go to your FreeNAS web user interface&lt;/li&gt;
+  &lt;li&gt;Click on System from the left panel.&lt;/li&gt;
+  &lt;li&gt;Click on Cloud Credentials.&lt;/li&gt;
+  &lt;li&gt;Click the Add button.&lt;/li&gt;
+  &lt;li&gt;Type a name for the Dropbox account — for example, Dropbox 2TB.&lt;/li&gt;
+  &lt;li&gt;Set Provider to Dropbox.&lt;/li&gt;
+  &lt;li&gt;Copy in your access token.&lt;/li&gt;
+  &lt;li&gt;Click the Save button.&lt;/li&gt;
+  &lt;li&gt;Click on Tasks from the left panel&lt;/li&gt;
+  &lt;li&gt;Click on Cloud Sync Tasks.&lt;/li&gt;
+  &lt;li&gt;Select your Dropbox account and schedule a sync task.&lt;/li&gt;
+  &lt;li&gt;Select the folder on the FreeNAS system. This can be an existing dataset to sync to Dropbox or a new dataset to back up files in your Dropbox share.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Set the kind of sync needed (Push or Pull) and how to transfer the content: Sync, Copy, or Move.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sync copies any changes from the source system to the destination.
+Copy copies new files. Files deleted on the host are not deleted on the destination.
+Move copies files to the destination, then deletes them from the source after the transfer is complete.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
 </content>
  </entry>
  
