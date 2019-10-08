@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2019-10-07T13:05:09+00:00</updated>
+ <updated>2019-10-08T10:19:03+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -19,9 +19,10 @@
    <id>https://sjmst5.github.io/articles/HOLIDAY</id>
    <content type="html">&lt;h1 id=&quot;long-holiday&quot;&gt;&lt;strong&gt;LONG HOLIDAY&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/keyboard.jpg&quot; alt=&quot;keyboard&quot; title=&quot;keyboard&quot; /&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;starting-18-november-2019-im-on-holiday&quot;&gt;Starting 18 November 2019 i’m on holiday.&lt;/h3&gt;
-&lt;p&gt;See you guys back in 2020!!
-Greetings&lt;/p&gt;
+&lt;h3 id=&quot;see-you-guys-back-in-2020&quot;&gt;See you guys back in 2020!!&lt;/h3&gt;
+&lt;h3 id=&quot;greetings&quot;&gt;Greetings&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/2019/08/frikandel.jpg&quot; alt=&quot;frikandel&quot; title=&quot;A cute del&quot; /&gt;&lt;/p&gt;
 </content>
