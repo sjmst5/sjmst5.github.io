@@ -4,13 +4,44 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2020-01-28T11:18:45+00:00</updated>
+ <updated>2020-01-28T14:26:02+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
    <email>robdekleinepkg@outlook.com</email>
  </author>
 
+ 
+ <entry>
+   <title>OrangePiOne</title>
+   <link href="https://sjmst5.github.io/articles/OrangePiOne"/>
+   <updated>2020-01-28T00:00:00+00:00</updated>
+   <id>https://sjmst5.github.io/articles/OrangePiOne</id>
+   <content type="html">&lt;h2 id=&quot;little-vpn-server-with-desktop&quot;&gt;&lt;strong&gt;Little Vpn server with desktop&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;In this blog where going to create an Vpn server with WireGuard and run the desktop with VNCserver (remote desktop) with SSH server enabled.&lt;/p&gt;
+
+&lt;h2 id=&quot;os&quot;&gt;OS&lt;/h2&gt;
+&lt;p&gt;Download and write the ISO from the Armbian website and login with &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;1234&lt;/code&gt;. Chance the password and create an user account. Run the command &lt;code class=&quot;highlighter-rouge&quot;&gt;armbian-config&lt;/code&gt; go into &lt;code class=&quot;highlighter-rouge&quot;&gt;system settings&lt;/code&gt; and install the &lt;code class=&quot;highlighter-rouge&quot;&gt;desktop with 3rd party apps&lt;/code&gt;. After that just install the latest ‘Firmware’. After the reboot login as &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt;. Run the command &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get update &amp;amp;&amp;amp; apt-get upgrade&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;vncserver&quot;&gt;VNCserver&lt;/h2&gt;
+&lt;p&gt;Install the VNCserver &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install tightvncserver&lt;/code&gt;. Start the VNCserver service &lt;code class=&quot;highlighter-rouge&quot;&gt;vncserver&lt;/code&gt;. Set up an pw and if you need you can enable a view-only pw.
+With every reboot the service needs to be enabled!&lt;/p&gt;
+
+&lt;h2 id=&quot;openvpn&quot;&gt;OpenVPN&lt;/h2&gt;
+&lt;p&gt;Install WireGuard the easy way with pivpn &lt;code class=&quot;highlighter-rouge&quot;&gt;curl -L https://install.pivpn.io | bash&lt;/code&gt; and select WireGuard but if you want you can choose for OpenVPN. The default port is 51820 (don’t forget to open this port Firewall). Reboot and run &lt;code class=&quot;highlighter-rouge&quot;&gt;pivpn add&lt;/code&gt; to add vpn clients.
+When you are on an mobile device you can also run &lt;code class=&quot;highlighter-rouge&quot;&gt;pivpn -qr&lt;/code&gt;to create an qr login.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;If you install OpenVPN the install is easy also, the port is by default 1194.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;desktop&quot;&gt;Desktop&lt;/h2&gt;
+&lt;p&gt;The desktop itself is already enabled and running by now, some handy apps you might want to install are an screensaver &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra&lt;/code&gt; and select the GLmatrix screensaver. Also handy is disks &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install gnome-disk-utility&lt;/code&gt;. I woudn’t recomend an browser but if you wish &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install firefox-esr&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;2fa--mfa&quot;&gt;2FA / MFA&lt;/h2&gt;
+&lt;p&gt;I’m still working on the 2FA in the VPN server, some handy links might be:&lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.howtoforge.com/securing-openvpn-with-a-one-time-password-otp-on-ubuntu&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;http://techblog.sillifish.co.uk/2017/04/05/openvpn-on-a-raspberry-pi-using-pivpn/&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.youtube.com/watch?v=a6mjt8tWUws&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://toub.es/2017/07/13/docker-raspberry-pi-perfect-combo/&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;https://toub.es/2018/02/15/low-cost-vpn-solution-with-two-factor-authentication-on-a-raspberry-pi/&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>PI Network Bridge</title>

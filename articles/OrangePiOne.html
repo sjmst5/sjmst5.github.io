@@ -6,10 +6,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rob de Kleine - Visual Studio Code</title>
+  <title>Rob de Kleine - OrangePiOne</title>
   <meta name="author" content="Rob de Kleine" />
   <meta name="description" content="The blog of Rob de Kleine" />
-  <link rel="canonical" href="https://sjmst5.github.io/articles/visual-studio-code" />
+  <link rel="canonical" href="https://sjmst5.github.io/articles/OrangePiOne" />
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -79,42 +79,38 @@
 
     <div class="eleven columns content">
       <p class="meta">
-  August 15, 2019 
+  January 28, 2020 
   <a href="/">
     <i class="home fa fa-home"></i>
   </a>
 </p>
 
-<h1 class="title">Visual Studio Code</h1>
+<h1 class="title">OrangePiOne</h1>
 
 <div id="post">
-  <h2 id="install">Install</h2>
+  <h2 id="little-vpn-server-with-desktop"><strong>Little Vpn server with desktop</strong></h2>
+<p>In this blog where going to create an Vpn server with WireGuard and run the desktop with VNCserver (remote desktop) with SSH server enabled.</p>
 
-<p>Download and install <a href="https://code.visualstudio.com/download">Visual Studio Code</a> and install with “Windows integration”.</p>
+<h2 id="os">OS</h2>
+<p>Download and write the ISO from the Armbian website and login with <code class="highlighter-rouge">root</code> <code class="highlighter-rouge">1234</code>. Chance the password and create an user account. Run the command <code class="highlighter-rouge">armbian-config</code> go into <code class="highlighter-rouge">system settings</code> and install the <code class="highlighter-rouge">desktop with 3rd party apps</code>. After that just install the latest ‘Firmware’. After the reboot login as <code class="highlighter-rouge">root</code>. Run the command <code class="highlighter-rouge">apt-get update &amp;&amp; apt-get upgrade</code>.</p>
 
-<hr />
+<h2 id="vncserver">VNCserver</h2>
+<p>Install the VNCserver <code class="highlighter-rouge">apt-get install tightvncserver</code>. Start the VNCserver service <code class="highlighter-rouge">vncserver</code>. Set up an pw and if you need you can enable a view-only pw.
+With every reboot the service needs to be enabled!</p>
 
-<h2 id="extensions">Extensions</h2>
+<h2 id="openvpn">OpenVPN</h2>
+<p>Install WireGuard the easy way with pivpn <code class="highlighter-rouge">curl -L https://install.pivpn.io | bash</code> and select WireGuard but if you want you can choose for OpenVPN. The default port is 51820 (don’t forget to open this port Firewall). Reboot and run <code class="highlighter-rouge">pivpn add</code> to add vpn clients.
+When you are on an mobile device you can also run <code class="highlighter-rouge">pivpn -qr</code>to create an qr login.</p>
+<blockquote>
+  <p>If you install OpenVPN the install is easy also, the port is by default 1194.</p>
+</blockquote>
 
-<p>The Extensions i have installed are:</p>
+<h2 id="desktop">Desktop</h2>
+<p>The desktop itself is already enabled and running by now, some handy apps you might want to install are an screensaver <code class="highlighter-rouge">apt-get install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra</code> and select the GLmatrix screensaver. Also handy is disks <code class="highlighter-rouge">apt-get install gnome-disk-utility</code>. I woudn’t recomend an browser but if you wish <code class="highlighter-rouge">apt-get install firefox-esr</code>.</p>
 
-<p><a href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer">Bracket Pair Colorizer</a>,
-<a href="https://marketplace.visualstudio.com/items?itemName=idleberg.emoji-code">Emoji Code</a>,
-<a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a>,
-<a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme</a>,
-<a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme">Material Theme</a>.</p>
-
-<hr />
-
-<h2 id="additional">Additional</h2>
-
-<p><a href="https://github.com/">An Github account</a>, For web storage.</p>
-
-<p><a href="https://travis-ci.org/">An Travis CI account</a>, Testing before deploying the new/updated site online.</p>
-
-<p><a href="https://gitforwindows.org/">Git for Windows</a>, Terminal in Windows.</p>
-
-<p>Inside the terminal create an ssh to github, install “Jakyll” and “Ruby (cli)”</p>
+<h2 id="2fa--mfa">2FA / MFA</h2>
+<p>I’m still working on the 2FA in the VPN server, some handy links might be:<code class="highlighter-rouge">https://www.howtoforge.com/securing-openvpn-with-a-one-time-password-otp-on-ubuntu</code> <code class="highlighter-rouge">http://techblog.sillifish.co.uk/2017/04/05/openvpn-on-a-raspberry-pi-using-pivpn/</code><code class="highlighter-rouge">https://www.youtube.com/watch?v=a6mjt8tWUws</code> <code class="highlighter-rouge">https://toub.es/2017/07/13/docker-raspberry-pi-perfect-combo/</code>
+<code class="highlighter-rouge">https://toub.es/2018/02/15/low-cost-vpn-solution-with-two-factor-authentication-on-a-raspberry-pi/</code></p>
 
 </div>
 
@@ -123,15 +119,15 @@
   <ul class="posts">
     
     <li>
-      <span>28 Jan 2020 &raquo;</span> <a href="/articles/OrangePiOne">OrangePiOne</a>
-    </li>
-    
-    <li>
       <span>03 Oct 2019 &raquo;</span> <a href="/articles/PI-Network-Bridge">PI Network Bridge</a>
     </li>
     
     <li>
       <span>18 Sep 2019 &raquo;</span> <a href="/articles/Storage-Server">Storage Server</a>
+    </li>
+    
+    <li>
+      <span>28 Aug 2019 &raquo;</span> <a href="/articles/ubuntu">Ubuntu 18.04</a>
     </li>
     
   </ul>
