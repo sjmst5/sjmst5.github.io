@@ -4,42 +4,13 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2020-02-11T00:37:58+00:00</updated>
+ <updated>2020-02-11T00:42:51+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
    <email>robdekleinepkg@outlook.com</email>
  </author>
 
- 
- <entry>
-   <title>Love</title>
-   <link href="https://sjmst5.github.io/articles/LOVE"/>
-   <updated>2020-02-11T00:00:00+00:00</updated>
-   <id>https://sjmst5.github.io/articles/LOVE</id>
-   <content type="html">&lt;h1 id=&quot;ik-hou-van-je&quot;&gt;&lt;strong&gt;Ik hou van je&lt;/strong&gt;&lt;/h1&gt;
-
-&lt;p&gt;Ik hou van je is zo simpel om te zeggen, maar ook verdomde moeilijk om te zeggen.
-Na het oprecht vertellen dat je van iemand houdt begint het samen worden en zijn.
-Het samen zijn in de trant van het openstellen van je hart, het openstellen van wie je werkelijk bent. 
-Durf je jezelf echt bloot te geven aan diegene waar je zo zielsveel van houdt.
-We houden al veel langer van elkaar dan we willen vertellen, waarom is het zo moeilijk om het je te vertellen? 
-Wat zijn de verwachtingen van jou naar mij toe?
-Hoe open wil je zijn over ons?
-Wat is het gene wat er is tussen ons?
-Zoveel vragen spoken door het hoofd, tot aan de gedachte of ik je niet zal kwetsen met al die de vragen en twijfels.
-Zal je bij me blijven als je me nog beter leert kennen? 
-Of weet je al genoeg om te weten wie ik ben? 
-Is het niet enkel naar mijn idee om al die dingen aan je te willen vertellen en vragen.
-Zoveel twijfels en gedachtes.
-Het enige wat ik wel zeker weet is dat ik voor jouw kies!!!
-Ik hou zoveel van je, zoals je bent en wordt, we hebben allebei onze weg te gaan om onszelf te hervinden. 
-Laten we onze krachten bundelen en er uit komen als een super koppel!!!
-IK HOU VAN JE!!!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/media/2020/02/Love.jpg&quot; alt=&quot;Love&quot; title=&quot;Love&quot; /&gt;&lt;/p&gt;
-</content>
- </entry>
  
  <entry>
    <title>OrangePiOne</title>
@@ -69,6 +40,35 @@ When you are on an mobile device you can also run &lt;code class=&quot;highlight
 &lt;h2 id=&quot;2fa--mfa&quot;&gt;2FA / MFA&lt;/h2&gt;
 &lt;p&gt;I’m still working on the 2FA in the VPN server, some handy links might be:&lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.howtoforge.com/securing-openvpn-with-a-one-time-password-otp-on-ubuntu&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;http://techblog.sillifish.co.uk/2017/04/05/openvpn-on-a-raspberry-pi-using-pivpn/&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.youtube.com/watch?v=a6mjt8tWUws&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://toub.es/2017/07/13/docker-raspberry-pi-perfect-combo/&lt;/code&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;https://toub.es/2018/02/15/low-cost-vpn-solution-with-two-factor-authentication-on-a-raspberry-pi/&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Love</title>
+   <link href="https://sjmst5.github.io/articles/LOVE"/>
+   <updated>2019-11-06T00:00:00+00:00</updated>
+   <id>https://sjmst5.github.io/articles/LOVE</id>
+   <content type="html">&lt;h1 id=&quot;ik-hou-van-je&quot;&gt;&lt;strong&gt;Ik hou van je&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;Ik hou van je is zo simpel om te zeggen, maar ook verdomde moeilijk om te zeggen.
+Na het oprecht vertellen dat je van iemand houdt begint het samen worden en zijn.
+Het samen zijn in de trant van het openstellen van je hart, het openstellen van wie je werkelijk bent. 
+Durf je jezelf echt bloot te geven aan diegene waar je zo zielsveel van houdt.
+We houden al veel langer van elkaar dan we willen vertellen, waarom is het zo moeilijk om het je te vertellen? 
+Wat zijn de verwachtingen van jou naar mij toe?
+Hoe open wil je zijn over ons?
+Wat is het gene wat er is tussen ons?
+Zoveel vragen spoken door het hoofd, tot aan de gedachte of ik je niet zal kwetsen met al die de vragen en twijfels.
+Zal je bij me blijven als je me nog beter leert kennen? 
+Of weet je al genoeg om te weten wie ik ben? 
+Is het niet enkel naar mijn idee om al die dingen aan je te willen vertellen en vragen.
+Zoveel twijfels en gedachtes.
+Het enige wat ik wel zeker weet is dat ik voor jouw kies!!!
+Ik hou zoveel van je, zoals je bent en wordt, we hebben allebei onze weg te gaan om onszelf te hervinden. 
+Laten we onze krachten bundelen en er uit komen als een super koppel!!!
+IK HOU VAN JE!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2020/02/Love.jpg&quot; alt=&quot;Love&quot; title=&quot;Love&quot; /&gt;&lt;/p&gt;
 </content>
  </entry>
  
