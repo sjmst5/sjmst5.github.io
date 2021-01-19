@@ -4,7 +4,7 @@
  <title>The blog of Rob de Kleine</title>
  <link href="https://sjmst5.github.io/atom.xml" rel="self"/>
  <link href="https://sjmst5.github.io"/>
- <updated>2020-02-13T13:20:06+00:00</updated>
+ <updated>2021-01-19T13:48:02+00:00</updated>
  <id>https://sjmst5.github.io</id>
  <author>
    <name>Rob de Kleine</name>
@@ -21,25 +21,25 @@
 &lt;p&gt;In this blog where going to create an Vpn server with WireGuard and run the desktop with VNCserver (remote desktop) with SSH server enabled.&lt;/p&gt;
 
 &lt;h2 id=&quot;os&quot;&gt;OS&lt;/h2&gt;
-&lt;p&gt;Download and write the ISO from the Armbian website and login with &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;1234&lt;/code&gt;. Chance the password and create an user account. Run the command &lt;code class=&quot;highlighter-rouge&quot;&gt;armbian-config&lt;/code&gt; go into &lt;code class=&quot;highlighter-rouge&quot;&gt;system settings&lt;/code&gt; and install the &lt;code class=&quot;highlighter-rouge&quot;&gt;desktop with 3rd party apps&lt;/code&gt;. After that just install the latest ‘Firmware’. After the reboot login as &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt;. Run the command &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get update &amp;amp;&amp;amp; apt-get upgrade&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Download and write the ISO from the Armbian website and login with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1234&lt;/code&gt;. Chance the password and create an user account. Run the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;armbian-config&lt;/code&gt; go into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;system settings&lt;/code&gt; and install the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;desktop with 3rd party apps&lt;/code&gt;. After that just install the latest ‘Firmware’. After the reboot login as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt;. Run the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-get update &amp;amp;&amp;amp; apt-get upgrade&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;vncserver&quot;&gt;VNCserver&lt;/h2&gt;
-&lt;p&gt;Install the VNCserver &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install tightvncserver&lt;/code&gt;. Start the VNCserver service &lt;code class=&quot;highlighter-rouge&quot;&gt;vncserver&lt;/code&gt;. Set up an pw and if you need you can enable a view-only pw.
+&lt;p&gt;Install the VNCserver &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-get install tightvncserver&lt;/code&gt;. Start the VNCserver service &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vncserver&lt;/code&gt;. Set up an pw and if you need you can enable a view-only pw.
 With every reboot the service needs to be enabled!&lt;/p&gt;
 
 &lt;h2 id=&quot;openvpn&quot;&gt;OpenVPN&lt;/h2&gt;
-&lt;p&gt;Install WireGuard the easy way with pivpn &lt;code class=&quot;highlighter-rouge&quot;&gt;curl -L https://install.pivpn.io | bash&lt;/code&gt; and select WireGuard but if you want you can choose for OpenVPN. The default port is 51820 (don’t forget to open this port Firewall). Reboot and run &lt;code class=&quot;highlighter-rouge&quot;&gt;pivpn add&lt;/code&gt; to add vpn clients.
-When you are on an mobile device you can also run &lt;code class=&quot;highlighter-rouge&quot;&gt;pivpn -qr&lt;/code&gt;to create an qr login.&lt;/p&gt;
+&lt;p&gt;Install WireGuard the easy way with pivpn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl -L https://install.pivpn.io | bash&lt;/code&gt; and select WireGuard but if you want you can choose for OpenVPN. The default port is 51820 (don’t forget to open this port Firewall). Reboot and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pivpn add&lt;/code&gt; to add vpn clients.
+When you are on an mobile device you can also run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pivpn -qr&lt;/code&gt;to create an qr login.&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;If you install OpenVPN the install is easy also, the port is by default 1194.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;desktop&quot;&gt;Desktop&lt;/h2&gt;
-&lt;p&gt;The desktop itself is already enabled and running by now, some handy apps you might want to install are an screensaver &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra&lt;/code&gt; and select the GLmatrix screensaver. Also handy is disks &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install gnome-disk-utility&lt;/code&gt;. I woudn’t recomend an browser but if you wish &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install firefox-esr&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The desktop itself is already enabled and running by now, some handy apps you might want to install are an screensaver &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-get install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra&lt;/code&gt; and select the GLmatrix screensaver. Also handy is disks &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-get install gnome-disk-utility&lt;/code&gt;. I woudn’t recomend an browser but if you wish &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-get install firefox-esr&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;2fa--mfa&quot;&gt;2FA / MFA&lt;/h2&gt;
-&lt;p&gt;I’m still working on the 2FA in the VPN server, some handy links might be:&lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.howtoforge.com/securing-openvpn-with-a-one-time-password-otp-on-ubuntu&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;http://techblog.sillifish.co.uk/2017/04/05/openvpn-on-a-raspberry-pi-using-pivpn/&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.youtube.com/watch?v=a6mjt8tWUws&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://toub.es/2017/07/13/docker-raspberry-pi-perfect-combo/&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;https://toub.es/2018/02/15/low-cost-vpn-solution-with-two-factor-authentication-on-a-raspberry-pi/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;I’m still working on the 2FA in the VPN server, some handy links might be:&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://www.howtoforge.com/securing-openvpn-with-a-one-time-password-otp-on-ubuntu&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://techblog.sillifish.co.uk/2017/04/05/openvpn-on-a-raspberry-pi-using-pivpn/&lt;/code&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://www.youtube.com/watch?v=a6mjt8tWUws&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://toub.es/2017/07/13/docker-raspberry-pi-perfect-combo/&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://toub.es/2018/02/15/low-cost-vpn-solution-with-two-factor-authentication-on-a-raspberry-pi/&lt;/code&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -263,7 +263,7 @@ ref: https://pimylifeup.com/raspberry-pi-wifi-bridge/&lt;/p&gt;
 Boot into the install drive and follow the instructions.
 After installation the ip of the web user interface will be prompted.&lt;/p&gt;
 
-&lt;p&gt;Enter your web user interface, &lt;code class=&quot;highlighter-rouge&quot;&gt;Username = root&lt;/code&gt; did you set your pw to &lt;code class=&quot;highlighter-rouge&quot;&gt;toor&lt;/code&gt;😉?&lt;/p&gt;
+&lt;p&gt;Enter your web user interface, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Username = root&lt;/code&gt; did you set your pw to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toor&lt;/code&gt;😉?&lt;/p&gt;
 
 &lt;h3 id=&quot;set-an-account&quot;&gt;Set an account&lt;/h3&gt;
 &lt;ol&gt;
@@ -391,40 +391,40 @@ Move copies files to the destination, then deletes them from the source after th
 
 &lt;h2 id=&quot;root-access&quot;&gt;Root access&lt;/h2&gt;
 
-&lt;p&gt;Open a terminal by pressing Ctrl+Alt+T (Ctrl+C to clean) &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -i (or sudo -s)&lt;/code&gt; when promted provide your password. After successful login, the $ prompt would change to # indicating that you are logged in as root user on Ubuntu.&lt;/p&gt;
+&lt;p&gt;Open a terminal by pressing Ctrl+Alt+T (Ctrl+C to clean) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo -i (or sudo -s)&lt;/code&gt; when promted provide your password. After successful login, the $ prompt would change to # indicating that you are logged in as root user on Ubuntu.&lt;/p&gt;
 
 &lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install ssh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt install ssh&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Confirm the SSH server is up and running by executing the command bellow. 
-Look for keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;Active: active (running)&lt;/code&gt;.&lt;/p&gt;
+Look for keyword &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Active: active (running)&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh status&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service ssh status&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;In an event that you need to temporarily disable SSH or restart:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh stop&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service ssh stop&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;To start again run:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service ssh start&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;In order to completely disable SSH after reboots 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl disable ssh&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;systemctl disable ssh&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;To enable SSH again
-&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable ssh&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;systemctl enable ssh&lt;/code&gt;
 Config SSH port
-&lt;code class=&quot;highlighter-rouge&quot;&gt;nano /etc/ssh/sshd_config&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nano /etc/ssh/sshd_config&lt;/code&gt;
 remove the # before the line you want to edit
-&lt;code class=&quot;highlighter-rouge&quot;&gt;port 5022&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;PermitRootLogin yes&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;port 5022&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PermitRootLogin yes&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;to save and exit&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl + X&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Y&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Enter&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + X&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Y&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Enter&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Don’t forget to restart ssh or reboot😉&lt;/p&gt;
 
@@ -432,23 +432,23 @@ remove the # before the line you want to edit
 
 &lt;p&gt;To enable ifconfig you need to install net-tools&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install net-tool&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt install net-tool&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;samba-public-local-share&quot;&gt;Samba (public local) share&lt;/h2&gt;
 
 &lt;p&gt;Now where going to set up an Folder that can be found in the network with Samba&lt;/p&gt;
 
 &lt;p&gt;Open an Terminal and install
-&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install samba smbfs&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-get install samba smbfs&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Configure samba
-&lt;code class=&quot;highlighter-rouge&quot;&gt;nano /etc/samba/smb.conf&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nano /etc/samba/smb.conf&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;If necesary you can change your workgoup&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;# Change this to the workgroup/NT-domain name your Samba server will part of
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;# Change this to the workgroup/NT-domain name your Samba server will part of
    workgroup = WORKGROUP&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Define the folders that you want to share&lt;/p&gt;
@@ -460,14 +460,14 @@ remove the # before the line you want to edit
   &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;no&lt;/span&gt;  
   &lt;span class=&quot;n&quot;&gt;guest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ok&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;yes&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Restart samba &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/smbd restart&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Restart samba &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/init.d/smbd restart&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;If not already you can create the share folder: &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir /your-share-folder&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If not already you can create the share folder: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir /your-share-folder&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Set the permissions: &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod 0777 /your-share-folder&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Set the permissions: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chmod 0777 /your-share-folder&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Acces in Windows Explorer
-Type: &lt;code class=&quot;highlighter-rouge&quot;&gt;\\&amp;lt;your-ip-address-to-ubuntu&amp;gt;\&amp;lt;your-share-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+Type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\\&amp;lt;your-ip-address-to-ubuntu&amp;gt;\&amp;lt;your-share-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;If you have troubles with your Firewall,&lt;/p&gt;
@@ -481,11 +481,11 @@ Type: &lt;code class=&quot;highlighter-rouge&quot;&gt;\\&amp;lt;your-ip-address-
 
 &lt;p&gt;Open an Terminal and intall&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install deluged deluge-console deluge-webui&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt install deluged deluge-console deluge-webui&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Run Deluge and check the box Preferences-&amp;gt;Daemon-&amp;gt;Allow Remote Connection&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd /etc/systemd/system/
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd /etc/systemd/system/
 touch deluged.service
 nano /etc/systemd/system/deluged.service&lt;/code&gt;&lt;/p&gt;
 
@@ -508,11 +508,11 @@ nano /etc/systemd/system/deluged.service&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Start Deluge&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl start deluged&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo systemctl start deluged&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Additionally, enable the Daemon at boot with:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable deluged&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;systemctl enable deluged&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;It’s time to set up the user for Deluge Daemon. Use echo to push a new user to the configuration file. 
 Change “user” to the name of the existing user on the system. Be sure that you enter the same password as your system user.&lt;/p&gt;
@@ -521,27 +521,27 @@ Change “user” to the name of the existing user on the system. Be sure that y
   &lt;p&gt;Note: 10 means your system user has full access to modify Deluge.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;echo &quot;user:password:10&quot; &amp;gt;&amp;gt; ~/.config/deluge/auth&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;user:password:10&quot; &amp;gt;&amp;gt; ~/.config/deluge/auth&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Now that the user is correctly configured, kill the daemon and start it back up. This can be done with systemd or killall.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl stop deluged&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo systemctl stop deluged&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl start deluged&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo systemctl start deluged&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Lastly, enable the Deluge WebUI connection.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;deluge-web --fork&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deluge-web --fork&lt;/code&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;ufw-uncomplicatedfirewall&quot;&gt;UFW (UncomplicatedFirewall)&lt;/h2&gt;
 
 &lt;p&gt;Install UFW&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install ufw&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-get install ufw&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Check te status&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw status&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Right now, it will probably tell you it is inactive. Whenever ufw is active, you’ll get a listing of the current rules that looks similar to this:&lt;/p&gt;
 
@@ -555,37 +555,37 @@ Change “user” to the name of the existing user on the system. Be sure that y
 &lt;p&gt;Allow Connections
 Example ssh:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow ssh&lt;/code&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow ssh&lt;/code&gt;
 or
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 22/tcp&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow 22/tcp&lt;/code&gt;
 or
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 5022/tcp&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow 5022/tcp&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Other samples:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow www&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 80/tcp&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow ftp&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 21/tcp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow www&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow 80/tcp&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow ftp&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow 21/tcp&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Port ranges:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 1000:2000/tcp&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow 1000:2000/udp&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow 1000:2000/tcp&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow 1000:2000/udp&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;IP addresses:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw allow from 192.168.255.255&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw allow from 192.168.255.255&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Deny Connectios:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw deny 80/tcp&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw deny 80/tcp&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Deleting Rules:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw delete *********&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw delete *********&lt;/code&gt;
 sample
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw delete allow ssh&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw delete allow ssh&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Turn ufw on status verbose off and reset:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status verbose&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ufw disable&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw status&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw status verbose&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw disable&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Reset to default:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw reset&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw reset&lt;/code&gt;&lt;/p&gt;
 </content>
  </entry>
  

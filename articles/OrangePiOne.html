@@ -92,25 +92,25 @@
 <p>In this blog where going to create an Vpn server with WireGuard and run the desktop with VNCserver (remote desktop) with SSH server enabled.</p>
 
 <h2 id="os">OS</h2>
-<p>Download and write the ISO from the Armbian website and login with <code class="highlighter-rouge">root</code> <code class="highlighter-rouge">1234</code>. Chance the password and create an user account. Run the command <code class="highlighter-rouge">armbian-config</code> go into <code class="highlighter-rouge">system settings</code> and install the <code class="highlighter-rouge">desktop with 3rd party apps</code>. After that just install the latest ‘Firmware’. After the reboot login as <code class="highlighter-rouge">root</code>. Run the command <code class="highlighter-rouge">apt-get update &amp;&amp; apt-get upgrade</code>.</p>
+<p>Download and write the ISO from the Armbian website and login with <code class="language-plaintext highlighter-rouge">root</code> <code class="language-plaintext highlighter-rouge">1234</code>. Chance the password and create an user account. Run the command <code class="language-plaintext highlighter-rouge">armbian-config</code> go into <code class="language-plaintext highlighter-rouge">system settings</code> and install the <code class="language-plaintext highlighter-rouge">desktop with 3rd party apps</code>. After that just install the latest ‘Firmware’. After the reboot login as <code class="language-plaintext highlighter-rouge">root</code>. Run the command <code class="language-plaintext highlighter-rouge">apt-get update &amp;&amp; apt-get upgrade</code>.</p>
 
 <h2 id="vncserver">VNCserver</h2>
-<p>Install the VNCserver <code class="highlighter-rouge">apt-get install tightvncserver</code>. Start the VNCserver service <code class="highlighter-rouge">vncserver</code>. Set up an pw and if you need you can enable a view-only pw.
+<p>Install the VNCserver <code class="language-plaintext highlighter-rouge">apt-get install tightvncserver</code>. Start the VNCserver service <code class="language-plaintext highlighter-rouge">vncserver</code>. Set up an pw and if you need you can enable a view-only pw.
 With every reboot the service needs to be enabled!</p>
 
 <h2 id="openvpn">OpenVPN</h2>
-<p>Install WireGuard the easy way with pivpn <code class="highlighter-rouge">curl -L https://install.pivpn.io | bash</code> and select WireGuard but if you want you can choose for OpenVPN. The default port is 51820 (don’t forget to open this port Firewall). Reboot and run <code class="highlighter-rouge">pivpn add</code> to add vpn clients.
-When you are on an mobile device you can also run <code class="highlighter-rouge">pivpn -qr</code>to create an qr login.</p>
+<p>Install WireGuard the easy way with pivpn <code class="language-plaintext highlighter-rouge">curl -L https://install.pivpn.io | bash</code> and select WireGuard but if you want you can choose for OpenVPN. The default port is 51820 (don’t forget to open this port Firewall). Reboot and run <code class="language-plaintext highlighter-rouge">pivpn add</code> to add vpn clients.
+When you are on an mobile device you can also run <code class="language-plaintext highlighter-rouge">pivpn -qr</code>to create an qr login.</p>
 <blockquote>
   <p>If you install OpenVPN the install is easy also, the port is by default 1194.</p>
 </blockquote>
 
 <h2 id="desktop">Desktop</h2>
-<p>The desktop itself is already enabled and running by now, some handy apps you might want to install are an screensaver <code class="highlighter-rouge">apt-get install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra</code> and select the GLmatrix screensaver. Also handy is disks <code class="highlighter-rouge">apt-get install gnome-disk-utility</code>. I woudn’t recomend an browser but if you wish <code class="highlighter-rouge">apt-get install firefox-esr</code>.</p>
+<p>The desktop itself is already enabled and running by now, some handy apps you might want to install are an screensaver <code class="language-plaintext highlighter-rouge">apt-get install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra</code> and select the GLmatrix screensaver. Also handy is disks <code class="language-plaintext highlighter-rouge">apt-get install gnome-disk-utility</code>. I woudn’t recomend an browser but if you wish <code class="language-plaintext highlighter-rouge">apt-get install firefox-esr</code>.</p>
 
 <h2 id="2fa--mfa">2FA / MFA</h2>
-<p>I’m still working on the 2FA in the VPN server, some handy links might be:<code class="highlighter-rouge">https://www.howtoforge.com/securing-openvpn-with-a-one-time-password-otp-on-ubuntu</code> <code class="highlighter-rouge">http://techblog.sillifish.co.uk/2017/04/05/openvpn-on-a-raspberry-pi-using-pivpn/</code><code class="highlighter-rouge">https://www.youtube.com/watch?v=a6mjt8tWUws</code> <code class="highlighter-rouge">https://toub.es/2017/07/13/docker-raspberry-pi-perfect-combo/</code>
-<code class="highlighter-rouge">https://toub.es/2018/02/15/low-cost-vpn-solution-with-two-factor-authentication-on-a-raspberry-pi/</code></p>
+<p>I’m still working on the 2FA in the VPN server, some handy links might be:<code class="language-plaintext highlighter-rouge">https://www.howtoforge.com/securing-openvpn-with-a-one-time-password-otp-on-ubuntu</code> <code class="language-plaintext highlighter-rouge">http://techblog.sillifish.co.uk/2017/04/05/openvpn-on-a-raspberry-pi-using-pivpn/</code><code class="language-plaintext highlighter-rouge">https://www.youtube.com/watch?v=a6mjt8tWUws</code> <code class="language-plaintext highlighter-rouge">https://toub.es/2017/07/13/docker-raspberry-pi-perfect-combo/</code>
+<code class="language-plaintext highlighter-rouge">https://toub.es/2018/02/15/low-cost-vpn-solution-with-two-factor-authentication-on-a-raspberry-pi/</code></p>
 
 </div>
 
@@ -146,7 +146,7 @@ When you are on an mobile device you can also run <code class="highlighter-rouge
   <p>
     © Rob de Kleine,
     <a href="https://api.whatsapp.com/send?phone=31617768233" target="_blank" rel="external noopener"><i class="fa fa-whatsapp"></i></a>
-    <a href="tel:+31617768233"><i class="fa fa-phone"></i></a>, 2020 - built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+    <a href="tel:+31617768233"><i class="fa fa-phone"></i></a>, 2021 - built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
   </p>
   <p> 
     <IFRAME SRC="https://api.buienradar.nl/image/1.0/RadarMapNL?w=256&h=256" NORESIZE SCROLLING=NO HSPACE=0 VSPACE=0 FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 WIDTH=256 HEIGHT=256></IFRAME><br>
